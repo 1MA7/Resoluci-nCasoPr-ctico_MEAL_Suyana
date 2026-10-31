@@ -1,0 +1,1120 @@
+
+Presentacion_Ejecutiva_MEAL_Suyana.html
+100%
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Caso Práctico Especialista MEAL — Fundación Suyana | Miguel Ángel Arciénega</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --suyana-green: #003926;
+    --suyana-leaf: #2E7D32;
+    --slate-dark: #1E293B;
+    --slate-muted: #64748B;
+    --amber-meal: #D97706;
+    --amber-light: #FEF3C7;
+    --bg-pearl: #F8FAFC;
+    --bg-mint: #E8F5E9;
+    --border-silver: #CBD5E1;
+    --white: #FFFFFF;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Inter', Arial, sans-serif;
+    background-color: #0F172A;
+    color: var(--slate-dark);
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Contenedor 16:9 de Diapositivas */
+  .deck-viewport {
+    width: 96vw;
+    height: 54vw;
+    max-height: 90vh;
+    max-width: 160vh;
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.55);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 32px 44px 56px 44px;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--white);
+    position: relative;
+    animation: fadeIn 0.28s ease-out;
+  }
+
+  .slide.active {
+    display: flex;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Barra Superior e Inferior de Diapositiva */
+  .slide-header {
+    border-bottom: 2px solid var(--suyana-green);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+
+  .slide-kicker {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    color: var(--amber-meal);
+    margin-bottom: 3px;
+    display: block;
+  }
+
+  .slide-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.45rem;
+    font-weight: 800;
+    color: var(--suyana-green);
+    line-height: 1.15;
+  }
+
+  .slide-badge {
+    background: var(--bg-mint);
+    color: var(--suyana-green);
+    border: 1px solid var(--suyana-leaf);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  .slide-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .slide-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 36px;
+    background: var(--bg-pearl);
+    border-top: 1px solid var(--border-silver);
+    padding: 0 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.72rem;
+    color: var(--slate-muted);
+  }
+
+  /* Callout Boxes (Regla 60-30-10) */
+  .callout {
+    background: var(--bg-pearl);
+    border: 1px solid #E2E8F0;
+    border-left: 5px solid var(--suyana-green);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .callout.amber {
+    border-left-color: var(--amber-meal);
+    background: #FFFBEB;
+  }
+
+  .callout strong {
+    color: var(--suyana-green);
+  }
+
+  .callout.amber strong {
+    color: #B45309;
+  }
+
+  /* Tablas de Alta Densidad */
+  table.exec-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.75rem;
+    line-height: 1.28;
+  }
+
+  table.exec-table th {
+    background: var(--suyana-green);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 10px;
+    font-size: 0.73rem;
+    letter-spacing: 0.3px;
+  }
+
+  table.exec-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border-silver);
+    vertical-align: middle;
+  }
+
+  table.exec-table tr:nth-child(even) td {
+    background: var(--bg-pearl);
+  }
+
+  table.exec-table tr.priority-row td {
+    background: #FEF9C3 !important;
+    border-bottom: 1.5px solid var(--amber-meal);
+  }
+
+  /* Badges y Píldoras */
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.68rem;
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+  }
+  .pill-green { background: var(--suyana-green); color: white; }
+  .pill-leaf { background: var(--bg-mint); color: var(--suyana-leaf); border: 1px solid var(--suyana-leaf); }
+  .pill-amber { background: var(--amber-meal); color: white; }
+  .pill-slate { background: var(--slate-dark); color: white; }
+
+  /* Layouts en Grilla */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; height: 100%; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+
+  .card {
+    background: var(--bg-pearl);
+    border: 1px solid var(--border-silver);
+    border-top: 4px solid var(--suyana-green);
+    border-radius: 8px;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .card.amber-top { border-top-color: var(--amber-meal); }
+  .card.leaf-top { border-top-color: var(--suyana-leaf); }
+
+  .card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    color: var(--suyana-green);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .card p, .card li {
+    font-size: 0.74rem;
+    line-height: 1.32;
+    color: var(--slate-dark);
+  }
+
+  .card ul { padding-left: 15px; }
+
+  /* Controles de Navegación Flotantes */
+  .nav-bar {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: rgba(30, 41, 59, 0.9);
+    padding: 6px 18px;
+    border-radius: 30px;
+    color: white;
+    font-size: 0.8rem;
+  }
+
+  .nav-btn {
+    background: var(--suyana-green);
+    color: white;
+    border: 1px solid #10B981;
+    padding: 5px 12px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.75rem;
+    transition: all 0.2s;
+  }
+
+  .nav-btn:hover { background: var(--amber-meal); border-color: var(--amber-meal); }
+
+  /* Botones interactivos internos */
+  .filter-bar {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .filter-btn {
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    border: 1px solid var(--suyana-green);
+    background: white;
+    color: var(--suyana-green);
+    border-radius: 14px;
+    cursor: pointer;
+  }
+  .filter-btn.active {
+    background: var(--suyana-green);
+    color: white;
+  }
+
+  /* Impresión a PDF exacta en 16:9 */
+  @media print {
+    body { background: white; overflow: visible; height: auto; }
+    .deck-viewport { width: 100%; height: auto; max-width: none; max-height: none; box-shadow: none; }
+    .slide { display: flex !important; page-break-after: always; height: 100vh; width: 100vw; }
+    .nav-bar { display: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck-viewport">
+
+  <!-- ==================== SLIDE 1: PORTADA EJECUTIVA ==================== -->
+  <section class="slide active" style="background: linear-gradient(135deg, #003926 0%, #002216 65%, #1E293B 100%); color: white; justify-content: center;">
+    <!-- Logo Suyana Superior Derecha -->
+    <div style="position: absolute; top: 32px; right: 44px; background; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
+      <<img src="file:///D:/enviados/26.08.28_MEAL_Suyana/presentación caso/img/logo_suyana_green.jpeg" alt="Fundación Suyana" style="height: 45px; width: auto; display: block;">
+    </div>
+    
+    <div style="border-left: 6px solid #D97706; padding-left: 28px; max-width: 92%;">
+      
+      <h1 style="font-family:'Montserrat',sans-serif; font-size:2.3rem; font-weight:800; line-height:1.15; margin: 12px 0 14px 0; color:#FFFFFF;">
+        Resolución de Caso Práctico - Especialista de Monitoreo, Evaluación y Aprendizaje (MEAL) y Gestión del Conocimiento
+      </h1>
+      <p style="font-size:1.0rem; color:#E2E8F0; line-height:1.45; max-width: 820px; margin-bottom: 24px;">
+        Resolución estratégica interconectada para la evaluación del <strong>Programa Municipio Saludable (PMS 2024–2026)</strong>, su factibilidad de expansión urbana en <strong>El Alto (Distrito 4)</strong> y la consolidación del ecosistema <strong>KoboToolbox – ETL – Power BI (SSOT)</strong>.
+      </p>
+      <div style="display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px;">
+        <span style="background:rgba(255,255,255,0.12); border:1px solid #10B981; padding:8px 16px; border-radius:8px; font-size:0.82rem;">
+          <strong>Caso 1:</strong> Evaluación Mixta Participativa y Criterios OCDE-CAD
+        </span>
+        <span style="background:rgba(255,255,255,0.12); border:1px solid #FBBF24; padding:8px 16px; border-radius:8px; font-size:0.82rem;">
+          <strong>Caso 2:</strong> Evidencia y Teoría de Cambio Adaptativa (El Alto D-4)
+        </span>
+        <span style="background:rgba(255,255,255,0.12); border:1px solid #38BDF8; padding:8px 16px; border-radius:8px; font-size:0.82rem;">
+          <strong>Caso 3:</strong> Gobernanza RACI y Automatización DQA en Origen
+        </span>
+      </div>
+      <div style="display:flex; align-items:center; gap:20px; background:rgba(0,0,0,0.35); padding:12px 20px; border-radius:10px; width:fit-content;">
+        <div>
+          <div style="font-family:'Montserrat',sans-serif; font-weight:700; font-size:1.05rem; color:#FFFFFF;">Miguel Ángel Arciénega Avilés</div>
+          <div style="font-size:0.8rem; color:#FBBF24;">PMP® · Máster en Data Science · Especialista Senior en Sistemas MEAL y GBR</div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-footer" style="background:rgba(0,0,0,0.4); border-top-color:rgba(255,255,255,0.15); color:#CBD5E1;">
+      <span>Stiftung Suyana — Bolivia | Caso Práctico Integral</span>
+      <span>Diapositiva 1 de 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 2: TAREA 1A (PROPUESTA METODOLÓGICA) ==================== -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <span class="slide-kicker">Caso 1 · Evaluación Programa Municipio Saludable (PMS 2024–2026)</span>
+        <h2 class="slide-title">Tarea 1A: Enfoque de Integración Mixta Participativa (Círculo Virtuoso)</h2>
+      </div>
+      <span class="slide-badge">Evaluación Final Integral + Cohorte 2021–2023</span>
+    </div>
+
+    <div class="slide-body">
+      <div class="grid-2" style="grid-template-columns: 1.35fr 1fr; align-items:stretch;">
+        <!-- Diagrama SVG del Círculo Virtuoso -->
+        <div style="background:var(--bg-pearl); border:1px solid var(--border-silver); border-radius:8px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
+          <div style="font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:700; color:var(--suyana-green); text-align:center;">
+          </div>
+         <img src="file:///D:/enviados/26.08.28_MEAL_Suyana/presentación caso/img/metodologia.jpeg" alt="Arquitectura del Círculo Virtuoso de Retroalimentación y Triangulación" style="width: 100%; height: auto; border-radius: 8px;">
+          <div style="font-size:0.71rem; color:var(--slate-muted); text-align:center;">
+            <strong>Círculo Virtuoso:</strong> Redistribuye el poder evaluativo involucrando a los actores territoriales como coinvestigadores.
+          </div>
+        </div>
+
+        <!-- Columna Derecha: Justificación Metodológica y Fuentes -->
+        <div style="display:flex; flex-direction:column; justify-content:space-between; gap:10px;">
+          <div class="callout amber">
+            <strong>¿Por qué Análisis de Contribución y NO Atribución Experimental?</strong><br>
+            El ToR menciona "evaluación de impacto", pero aplicar los <strong>6 criterios OCDE-CAD</strong> exige una <strong>Evaluación Final Integral</strong>. Operamos en territorios complejos sin grupos de control (contrafactuales); por tanto, mediremos cómo el PMS <em>contribuyó</em> razonablemente a los cambios junto a otros factores externos.
+          </div>
+
+          <div class="card leaf-top">
+            <h3>Clasificación de Actores y Fuentes <span class="pill pill-leaf">Unidades de Análisis</span></h3>
+            <ul>
+              <li><strong>Fuentes Primarias:</strong> (1) <em>Familias beneficiarias</em> (unidades familiares); (2) <em>Coordinación y actores municipales / líderes comunales</em>; (3) <em>Equipo técnico Suyana y 7 Unidades Móviles</em>.</li>
+              <li><strong>Fuentes Secundarias:</strong> Bases históricas KoboToolbox, tableros Power BI, reportes de monitoreo y documentos del Anexo 1.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Priorización Estratégica de Criterios OCDE-CAD <span class="pill pill-green">Foco Evaluativo</span></h3>
+            <ul>
+              <li><strong>Pertinencia:</strong> Validar alineación con demandas reales en PROMSA, Odontología, Educación y DESMA.</li>
+              <li><strong>Eficacia e Impacto:</strong> Ir más allá de metas físicas para explicar mecanismos de transformación familiar.</li>
+              <li><strong>Sostenibilidad (Cohorte 2021–2023):</strong> Verificar qué prácticas persisten hoy sin apoyo directo de Suyana.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Caso 1: Evaluación PMS 2024–2026 | Propuesta Metodológica</span>
+      <span>Diapositiva 2 de 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 3: TAREA 1B (MATRIZ DE EVALUACIÓN) ==================== -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <span class="slide-kicker">Caso 1 · Operacionalización de los 6 Criterios OCDE-CAD</span>
+        <h2 class="slide-title">Tarea 1B: Matriz de Evaluación Integral y Preguntas Priorizadas</h2>
+      </div>
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="toggleMatrix('all', this)">Ver 6 Criterios OCDE-CAD</button>
+        <button class="filter-btn" onclick="toggleMatrix('priority', this)">Destacar 3 Prioritarios ★</button>
+      </div>
+    </div>
+
+    <div class="slide-body">
+      <table class="exec-table" id="evalMatrix">
+        <thead>
+          <tr>
+            <th style="width:13%;">Criterio CAD</th>
+            <th style="width:27%;">Pregunta de Evaluación</th>
+            <th style="width:20%;">Evidencia Requerida</th>
+            <th style="width:16%;">Fuente / Unidad de Análisis</th>
+            <th style="width:12%;">Método</th>
+            <th style="width:12%;">Enfoque de Análisis</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="priority-item">
+            <td><span class="pill pill-amber">★ 1. Pertinencia</span></td>
+            <td><strong>¿En qué medida el diseño integral del PMS respondió a las necesidades prioritarias en salud, educación y DESMA de los territorios?</strong></td>
+            <td>Grado de alineación entre estrategias del PMS y demandas comunitarias/municipales.</td>
+            <td>Familias beneficiarias / Coordinación municipal.</td>
+            <td>Grupos Focales y Revisión Documental.</td>
+            <td>Cualitativo: Contextual y valorativo.</td>
+          </tr>
+          <tr class="non-priority-item">
+            <td><span class="pill pill-slate">2. Coherencia</span></td>
+            <td>¿Cómo se articuló el PMS con las políticas municipales, salud (SEDES) y educación existentes?</td>
+            <td>Convenios activos, sinergias operativas y complementariedad con POAs locales.</td>
+            <td>Actores municipales / Equipo de Proyecto.</td>
+            <td>Entrevistas (KII) y Verificación Documental.</td>
+            <td>Cualitativo: Análisis institucional.</td>
+          </tr>
+          <tr class="non-priority-item">
+            <td><span class="pill pill-slate">3. Eficacia</span></td>
+            <td>¿Se alcanzaron los resultados e indicadores de cobertura previstos durante el trienio 2024–2026?</td>
+            <td>% de cumplimiento de metas físicas y alcance territorial en los 4 subprogramas.</td>
+            <td>Bases KoboToolbox / Tableros Power BI / Equipo técnico.</td>
+            <td>Análisis Estadístico Descriptivo y Reuniones.</td>
+            <td>Cuantitativo: Varianza / Fact-based.</td>
+          </tr>
+          <tr class="non-priority-item">
+            <td><span class="pill pill-slate">4. Eficiencia</span></td>
+            <td>¿Se utilizaron los recursos operativos y las 7 unidades móviles de forma oportuna y costo-efectiva?</td>
+            <td>Relación costo-tiempo-alcance logístico en despliegues territoriales.</td>
+            <td>Coordinadores de Subprograma / Unidades Móviles.</td>
+            <td>Entrevistas y Análisis Administrativo.</td>
+            <td>Mixto: Eficiencia operativa.</td>
+          </tr>
+          <tr class="priority-item">
+            <td><span class="pill pill-amber">★ 5. Impacto</span></td>
+            <td><strong>¿Cuáles fueron los cambios más significativos en las condiciones de vida y cómo contribuyó el PMS frente a otros factores?</strong></td>
+            <td>Narrativas verificadas de transformación familiar/escolar (previstas e imprevistas).</td>
+            <td>Familias o unidades familiares beneficiarias.</td>
+            <td>Cambio Más Significativo (MSC) en Grupos Focales.</td>
+            <td>Mixto: Elucidación de mecanismos y Contribución.</td>
+          </tr>
+          <tr class="priority-item">
+            <td><span class="pill pill-amber">★ 6. Sostenibilidad</span></td>
+            <td><strong>¿Qué capacidades, prácticas y mecanismos de salud, educación y DESMA se mantienen activos en la cohorte 2021–2023?</strong></td>
+            <td>Prácticas autogestionadas vigentes 3 años después del retiro directo de Suyana.</td>
+            <td>Familias y Actores Municipales (Cohorte 2021–2023).</td>
+            <td>Encuesta Estratificada + MSC / Grupos Focales.</td>
+            <td>Mixto: Triangulación concurrente ex-post.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <strong>Lógica de Articulación Matricial:</strong> Las filas identificadas con <strong>★ Dorado Ámbar</strong> responden a las decisiones estratégicas del Directorio de Suyana para el nuevo ciclo: validan la pertinencia territorial, explican la contribución real más allá de las actividades y comprueban empíricamente la sostenibilidad post-intervención en la cohorte 2021–2023.
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Caso 1: Evaluación PMS 2024–2026 | Matriz de Evaluación OCDE-CAD</span>
+      <span>Diapositiva 3 de 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 4: TAREA 1C (LIMITACIONES Y GESTIÓN DE RIESGOS) ==================== -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <span class="slide-kicker">Caso 1 · Viabilidad, Rigor Metodológico y Gobernanza Evaluativa</span>
+        <h2 class="slide-title">Tarea 1C: Limitaciones y Desafíos bajo un Enfoque de Gestión de Riesgos</h2>
+      </div>
+      <span class="slide-badge">5 Restricciones Críticas Priorizadas</span>
+    </div>
+
+    <div class="slide-body">
+      <div class="grid-5">
+        <!-- Riesgo 1 -->
+        <div class="card amber-top">
+          <div>
+            <span class="pill pill-amber">Prioridad 1 · Crítico</span>
+            <h3 style="margin-top:6px;">1. Sesgo de Autoevaluación Interna</h3>
+          </div>
+          <p><strong>Desafío e Impacto:</strong> Al ser ejecutada por coordinadores y unidades móviles propias, existe riesgo de complacencia o pérdida de objetividad que reste credibilidad ante el Directorio.</p>
+          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
+            <strong>Mitigación:</strong> Involucrar transversalmente a <strong>Impact Management (HQ Suiza)</strong> como par revisor externo y aplicar triangulación independiente.
+          </div>
+        </div>
+
+        <!-- Riesgo 2 -->
+        <div class="card amber-top">
+          <div>
+            <span class="pill pill-amber">Prioridad 2 · Metodológico</span>
+            <h3 style="margin-top:6px;">2. Atribución vs. Contribución</h3>
+          </div>
+          <p><strong>Desafío e Impacto:</strong> Riesgo de realizar falsas inferencias causales ("sesgo del salvador") al carecer de grupo de control experimental para aislar el efecto exclusivo del PMS.</p>
+          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
+            <strong>Mitigación:</strong> Aplicar <strong>Análisis de Contribución</strong>, mapeando participativamente qué otros actores o programas públicos influyeron en el territorio.
+          </div>
+        </div>
+
+        <!-- Riesgo 3 -->
+        <div class="card">
+          <div>
+            <span class="pill pill-green">Prioridad 3 · Datos</span>
+            <h3 style="margin-top:6px;">3. Calidad y Dispersión Histórica</h3>
+          </div>
+          <p><strong>Desafío e Impacto:</strong> Datos del trienio distribuidos en múltiples fuentes con posibles inconsistencias que distorsionen las conclusiones empíricas.</p>
+          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
+            <strong>Mitigación:</strong> <strong>Verificación, organización y categorización temprana</strong> durante la recopilación inicial para detectar vacíos críticos antes del análisis.
+          </div>
+        </div>
+
+        <!-- Riesgo 4 -->
+        <div class="card">
+          <div>
+            <span class="pill pill-green">Prioridad 4 · Organizacional</span>
+            <h3 style="margin-top:6px;">4. Rotación del Personal Histórico</h3>
+          </div>
+          <p><strong>Desafío e Impacto:</strong> Pérdida de memoria institucional sobre decisiones operativas o ajustes realizados al inicio del ciclo 2024 o en 2021–2023.</p>
+          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
+            <strong>Mitigación:</strong> <strong>Revisión documental exhaustiva</strong> combinada con grupos focales de reconstrucción de memoria histórica con actores clave.
+          </div>
+        </div>
+
+        <!-- Riesgo 5 -->
+        <div class="card leaf-top">
+          <div>
+            <span class="pill pill-leaf">Prioridad 5 · Operativo</span>
+            <h3 style="margin-top:6px;">5. Localización Cohorte 2021–2023</h3>
+          </div>
+          <p><strong>Desafío e Impacto:</strong> Desgaste muestral, migración familiar o cambio de autoridades en municipios egresados que sesgue la medición ex-post de Sostenibilidad.</p>
+          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
+            <strong>Mitigación:</strong> <strong>Muestreo estratificado ajustado</strong> y coordinación previa con autoridades originarias/municipales para ubicar unidades familiares.
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Información Adicional que Solicitaría a HQ / Dirección:</strong> (1) Diccionario de variables y estado de completitud de registros 2024–2026; (2) Informes de cierre de la cohorte 2021–2023 para definir el marco muestral ex-post; (3) Disponibilidad horaria de las 7 unidades móviles para no competir con su atención médica/odontológica regular.
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Caso 1: Evaluación PMS 2024–2026 | Gestión de Riesgos Evaluativos</span>
+      <span>Diapositiva 4 de 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 5: TAREA 1D (PLAN DE 30 DÍAS - GANTT) ==================== -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <span class="slide-kicker">Caso 1 · Ruta Crítica de Preparación e Inicio (Inception Phase)</span>
+        <h2 class="slide-title">Tarea 1D: Plan de Trabajo para los Primeros 30 Días (Diagrama de Gantt)</h2>
+      </div>
+      <span class="slide-badge">4 Semanas · 4 Entregables Verificables</span>
+    </div>
+
+    <div class="slide-body">
+      <table class="exec-table">
+        <thead>
+          <tr>
+            <th style="width:16%;">Fase / Prioridad</th>
+            <th style="width:30%;">Actividades Principales y Subactividades</th>
+            <th style="width:7%; text-align:center;">Sem 1</th>
+            <th style="width:7%; text-align:center;">Sem 2</th>
+            <th style="width:7%; text-align:center;">Sem 3</th>
+            <th style="width:7%; text-align:center;">Sem 4</th>
+            <th style="width:13%;">Actores Clave</th>
+            <th style="width:13%;">Producto Esperado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Fase 1: Inmersión y Diagnóstico</strong><br><span class="pill pill-green">Prioridad Alta</span></td>
+            <td>
+              • <strong>1.1 Revisión información secundaria:</strong> documentos, reportes y bases heredadas (Kobo/Power BI).<br>
+              • <strong>1.2 Revisión del Modelo Lógico / ToC</strong> del PMS.<br>
+              • <strong>1.3 Reuniones de alineación</strong> estratégica e institucional.
+            </td>
+            <td style="text-align:center;"><div style="background:#003926; color:#FBBF24; border-radius:4px; padding:4px; font-weight:700;">██ ★</div></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>Impact Management (HQ Suiza), Dirección, Resp. Sistemas.</td>
+            <td><strong>Diagnóstico de Evaluabilidad</strong> y Mapeo de Brechas de Datos.</td>
+          </tr>
+          <tr>
+            <td><strong>Fase 2: Diseño Metodológico</strong><br><span class="pill pill-green">Prioridad Alta</span></td>
+            <td>
+              • <strong>2.1 Diseño iterativo</strong> de la propuesta metodológica mixta participativa.<br>
+              • <strong>2.2 Definición y cálculo de muestra</strong> estadística estratificada (95% NC).
+            </td>
+            <td></td>
+            <td style="text-align:center;"><div style="background:#003926; color:#FBBF24; border-radius:4px; padding:4px; font-weight:700;">██ ★</div></td>
+            <td></td>
+            <td></td>
+            <td>Dirección de Programa, Equipo HQ Suiza.</td>
+            <td><strong>Propuesta Metodológica</strong> y Diseño Muestral Aprobado.</td>
+          </tr>
+          <tr>
+            <td><strong>Fase 3: Herramientas y Logística</strong><br><span class="pill pill-leaf">Co-diseño</span></td>
+            <td>
+              • <strong>3.1 Co-diseño y validación</strong> de Matriz de Evaluación e instrumentos (XLSForms y Guías MSC).<br>
+              • <strong>3.2 Planificación logística</strong> territorial con las 7 unidades móviles.
+            </td>
+            <td></td>
+            <td></td>
+            <td style="text-align:center;"><div style="background:#2E7D32; color:#FBBF24; border-radius:4px; padding:4px; font-weight:700;">██ ★</div></td>
+            <td></td>
+            <td>4 Coordinadores PMS (PROMSA, Odontología, Educación, DESMA).</td>
+            <td><strong>Matriz e Instrumentos Validados</strong> + Plan Táctico de Campo.</td>
+          </tr>
+          <tr>
+            <td><strong>Fase 4: Pilotaje y Calibración</strong><br><span class="pill pill-amber">Terreno</span></td>
+            <td>
+              • <strong>4.1 Despliegue del primer pilotaje</strong> de herramientas en terreno.<br>
+              • <strong>4.2 Ajuste final de instrumentos</strong> y protocolos post-piloto.
+            </td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align:center;"><div style="background:#D97706; color:#FFFFFF; border-radius:4px; padding:4px; font-weight:700;">██ ★</div></td>
+            <td>Equipo de Campo, 7 Unidades Móviles, Esp. MEAL.</td>
+            <td><strong>Kit Evaluativo Calibrado</strong> listo para despliegue masivo.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout amber">
+        <strong>Hitos de Gobernanza (★):</strong> El plan evita recolectar datos precipitadamente sin antes auditar las bases existentes (Semana 1) y co-diseñar los instrumentos con los 4 coordinadores (Semana 3), garantizando apropiación operativa y cero fricción con las 7 unidades móviles.
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Caso 1: Evaluación PMS 2024–2026 | Plan de Trabajo Primeros 30 Días</span>
+      <span>Diapositiva 5 de 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 6: TAREA 2A (EVIDENCIA EXPANSIÓN EL ALTO) ==================== -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <span class="slide-kicker">Caso 2 · Expansión del PMS a Contextos Urbanos y Periurbanos (El Alto, Distrito 4)</span>
+        <h2 class="slide-title">Tarea 2A: Matriz de Evidencia Necesaria y Umbrales para la Toma de Decisiones</h2>
+      </div>
+      <span class="slide-badge">Zona San Felipe de Seke · Distrito 4</span>
+    </div>
+
+    <div class="slide-body">
+      <table class="exec-table">
+        <thead>
+          <tr>
+            <th style="width:15%;">Categoría de Información</th>
+            <th style="width:19%;">¿Qué necesita saber?</th>
+            <th style="width:18%;">¿Por qué es crítico?</th>
+            <th style="width:16%;">¿Cómo se obtendría?</th>
+            <th style="width:18%;">¿Qué decisión permite tomar?</th>
+            <th style="width:14%;">Indicador / Dato Clave de Investigación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Dinámicas Demográficas y Socioculturales</strong></td>
+            <td>Multilocalidad y migración aymara, deserción escolar y dinámica familiar periurbana.</td>
+            <td>El D-4 no es rural; el hacinamiento y movilidad diaria exigen horarios y enfoques distintos.</td>
+            <td>Cartografía Censo 2024 (INE), SIE Distrital y Grupos Focales con Juntas Vecinales.</td>
+            <td>Orientar Educación hacia retención escolar urbana, apoyo técnico y prevención de violencia.</td>
+            <td><span class="pill pill-amber">D-4: 107.147 hab.</span><br>82 urbanizaciones y 51 Unidades Educativas (alta densidad).</td>
+          </tr>
+          <tr>
+            <td><strong>2. Economía y Medios de Vida Urbanos</strong></td>
+            <td>Subempleo juvenil, comercio informal y viabilidad real de huertos urbanos.</td>
+            <td>El modelo agrícola rural DESMA fracasa si depende de subsidio o si venden todo sin autoconsumo.</td>
+            <td>Estudios UMSA/CEDLA, mapeo de ferias (Wali Sumita / EcoHuertas) y encuestas.</td>
+            <td>Pivotar de carpas aisladas a <strong>Carpas Comunitarias/Escolares</strong>, economía circular y BTH juvenil.</td>
+            <td><span class="pill pill-amber">Índice AUP &lt; 0.65</span><br>Estudio 2025: baja sostenibilidad de carpas familiares aisladas.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Mapeo de Actores y Gobernanza</strong></td>
+            <td>Presencia de ONGs, GAMEA, Subalcaldía D-4, FEJUVE, Juntas Escolares y COLOSAS.</td>
+            <td>Territorio altamente politizado con rotación de subalcaldes y disputas por áreas de equipamiento.</td>
+            <td>Stakeholder Mapping, revisión POA D-4 y entrevistas a informantes clave (KII).</td>
+            <td>Construir una <strong>Licencia Social Tripartita</strong> (GAMEA/SEDES + FEJUVE + Escuelas) y microfocalizar 2–3 sectores.</td>
+            <td><span class="pill pill-green">82 Juntas Vecinales</span><br>Alta rotación en Subalcaldía D-4 exige blindaje institucional.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Salud Integral y Riesgo Ambiental</strong></td>
+            <td>Saturación de la Red Los Andes (CS San Felipe de Seke) y focos infecciosos del Río Seke.</td>
+            <td>La suplementación con hierro fracasa si hay reinfección parasitaria por aguas contaminadas.</td>
+            <td>Registros SNIS-VE / SEDES La Paz e informes de auditoría ambiental (Contraloría).</td>
+            <td>Reorientar Unidades Móviles a <strong>tamizaje escolar</strong> y exigir agua segura / saneamiento ambiental.</td>
+            <td><span class="pill pill-amber">Río Seke Contaminado</span><br>Descargas de mataderos clandestinos y 17.328 hab/centro salud.</td>
+          </tr>
+          <tr>
+            <td><strong>5. Lecciones Aprendidas Previas</strong></td>
+            <td>Aciertos, barreras y adaptaciones de ciclos previos del PMS y programas activos en La Paz.</td>
+            <td>Capitaliza activos institucionales existentes y evita repetir errores operativos en el piloto.</td>
+            <td>Sistematizaciones previas, evaluaciones de Suyana y talleres con equipo histórico.</td>
+            <td>Desplegar becarios universitarios aymaras (UMSA/UACs) como brigadistas técnicos comunitarios.</td>
+            <td><span class="pill pill-leaf">Activo: Beca Generación</span><br>Convenios vigentes Suyana–UMSA y SEDES La Paz.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <strong>Recomendación Ejecutiva a Dirección:</strong> Sí es viable trasladar el PMS a San Felipe de Seke, <strong>condicionado a microfocalizar el Año 1 Piloto en 2 a 3 sectores contiguos</strong> articulados alrededor del CS San Felipe de Seke, 2–3 Unidades Educativas (con BTH en Electromecánica) y la ribera del río Seke.
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Caso 2: Expansión PMS Urbano (El Alto D-4) | Evidencia para la Toma de Decisiones</span>
+      <span>Diapositiva 6 de 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 7: TAREA 2B (DISEÑO PMS URBANO Y TEORÍA DE CAMBIO) ==================== -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <span class="slide-kicker">Caso 2 · Rol de MEAL y Gestión del Conocimiento en el Diseño del Programa</span>
+        <h2 class="slide-title">Tarea 2B: Liderazgo Facilitador y Teoría de Cambio Adaptativa (Año 1 Piloto)</h2>
+      </div>
+      <span class="slide-badge">Co-creación + Evaluación Rápida</span>
+    </div>
+
+    <div class="slide-body">
+      <!-- Momento 1: Liderazgo Facilitador -->
+      <div style="background:var(--bg-mint); border:1px solid var(--suyana-leaf); border-radius:8px; padding:10px 14px;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:700; color:var(--suyana-green); margin-bottom:6px;">
+          MOMENTO 1: LIDERAZGO TÉCNICO FACILITADOR Y GESTIÓN DE LA EVIDENCIA (CO-CREACIÓN)
+        </div>
+        <div class="grid-3" style="gap:10px;">
+          <div style="background:white; padding:7px 10px; border-radius:6px; font-size:0.73rem;">
+            <strong>1. Procesamiento Analítico:</strong> Síntesis temática y visualización de la evidencia de las 5 categorías (Tarea 2A) en insumos ejecutivos digeribles.
+          </div>
+          <div style="background:white; padding:7px 10px; border-radius:6px; font-size:0.73rem;">
+            <strong>2. Sensemaking Interno Suyana:</strong> Facilitación de talleres con Dirección, Coordinadores e Impact Management para alinear la visión antes de salir a terreno.
+          </div>
+          <div style="background:white; padding:7px 10px; border-radius:6px; font-size:0.73rem;">
+            <strong>3. Co-diseño Territorial:</strong> Mesas participativas con GAMEA, Red Los Andes, Directores UE y FEJUVE D-4 para validar pertinencia sin crear falsas expectativas.
+          </div>
+        </div>
+      </div>
+
+      <!-- Momento 2: Ilustración Gráfica de la Teoría de Cambio -->
+      <div style="background:var(--bg-pearl); border:1px solid var(--border-silver); border-radius:8px; padding:10px 14px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:700; color:var(--suyana-green);">
+          MOMENTO 2: HOJA DE RUTA — TEORÍA DE CAMBIO ITERATIVA (BORRADOR CO-CREADO PARA EL PILOTO)
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1fr 22px 1fr 22px 1fr 22px 1fr; align-items:stretch; gap:4px; margin: 6px 0;">
+          <!-- Insumos -->
+          <div style="background:white; border:1.5px solid var(--slate-dark); border-radius:6px; padding:8px; font-size:0.71rem;">
+            <div style="background:var(--slate-dark); color:white; font-family:'Montserrat',sans-serif; font-weight:700; padding:3px 6px; border-radius:4px; margin-bottom:5px; text-align:center;">1. INSUMOS (INPUTS)</div>
+            • Presupuesto Piloto Año 1 y Equipo Técnico Suyana.<br>
+            • Infraestructura: CS San Felipe de Seke y UE del polígono (2–3 sectores).<br>
+            • Convenios SEDES, GAMEA y <strong>Becarios UMSA/UACs</strong>.
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--amber-meal); font-size:1.1rem;">➔</div>
+
+          <!-- Productos / Resultados -->
+          <div style="background:white; border:1.5px solid var(--suyana-leaf); border-radius:6px; padding:8px; font-size:0.71rem;">
+            <div style="background:var(--suyana-leaf); color:white; font-family:'Montserrat',sans-serif; font-weight:700; padding:3px 6px; border-radius:4px; margin-bottom:5px; text-align:center;">2. PRODUCTOS (OUTPUTS)</div>
+            • Tamizaje escolar (anemia/salud oral) sincronizado al SNIS.<br>
+            • Carpas solares comunitarias/escolares con cosecha de lluvia.<br>
+            • Talleres BTH (Electromecánica, Mercadotecnia y Reciclaje).
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--amber-meal); font-size:1.1rem;">➔</div>
+
+          <!-- Efectos -->
+          <div style="background:white; border:1.5px solid var(--suyana-green); border-radius:6px; padding:8px; font-size:0.71rem;">
+            <div style="background:var(--suyana-green); color:white; font-family:'Montserrat',sans-serif; font-weight:700; padding:3px 6px; border-radius:4px; margin-bottom:5px; text-align:center;">3. EFECTOS (OUTCOMES)</div>
+            • Reducción de reinfección parasitaria y recuperación de anemia (&ge;15%).<br>
+            • Autoconsumo nutritivo (&ge;50%) + venta en EcoHuertas/Wali Sumita.<br>
+            • Jóvenes egresados BTH con empleabilidad/emprendimiento.
+          </div>
+          <div style="display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--amber-meal); font-size:1.1rem;">➔</div>
+
+          <!-- Impacto -->
+          <div style="background:#FFFBEB; border:2px solid var(--amber-meal); border-radius:6px; padding:8px; font-size:0.71rem;">
+            <div style="background:var(--amber-meal); color:white; font-family:'Montserrat',sans-serif; font-weight:700; padding:3px 6px; border-radius:4px; margin-bottom:5px; text-align:center;">4. IMPACTO ESPERADO</div>
+            <strong>Población periurbana migrante de San Felipe de Seke (D-4) alcanza resiliencia social, económica, ambiental y de salud integral sostenible.</strong>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:10px; font-size:0.72rem;">
+          <div style="background:#FFFFFF; border-left:4px solid var(--suyana-green); padding:6px 10px; border-radius:4px;">
+            <strong>Supuestos Críticos a Monitorear:</strong> (1) Estabilidad de acuerdos con GAMEA/SEDES pese a rotación en Subalcaldía D-4; (2) Paz social con FEJUVE sobre predios comunales; (3) Uso exclusivo de agua segura/lluvia (prohibición de riego con aguas del río Seke).
+          </div>
+          <div style="background:#FEF3C7; border-left:4px solid var(--amber-meal); padding:6px 10px; border-radius:4px;">
+            <strong>Autoevaluación Fin Año 1 (Gate de Decisión):</strong> Contraste contra umbrales KPI (Índice AUP &ge;0,65; recuperación anemia &ge;15%) para calibrar, pivotar o escalar en los Años 2 y 3.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Caso 2: Expansión PMS Urbano (El Alto D-4) | Co-creación y Teoría de Cambio</span>
+      <span>Diapositiva 7 de 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 8: TAREA 3A (MATRIZ RACI DQA) ==================== -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <span class="slide-kicker">Caso 3 · Calidad de Datos (DQA) y Uso de la Evidencia Institucional</span>
+        <h2 class="slide-title">Tarea 3A: Gobernanza de Datos mediante Matriz RACI (Sin Sobrecarga Burocrática)</h2>
+      </div>
+      <span class="slide-badge">Validez · Fiabilidad · Integridad · Precisión · Oportunidad</span>
+    </div>
+
+    <div class="slide-body">
+      <!-- Leyenda RACI -->
+      <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px;">
+        <div style="background:var(--bg-pearl); border-left:4px solid var(--suyana-green); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
+          <span class="pill pill-green">R</span> <strong>Responsable (Responsible):</strong> Ejecuta operativamente la tarea.
+        </div>
+        <div style="background:var(--bg-pearl); border-left:4px solid var(--amber-meal); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
+          <span class="pill pill-amber">A</span> <strong>Aprobador (Accountable):</strong> Rinde cuentas y aprueba (único por fila).
+        </div>
+        <div style="background:var(--bg-pearl); border-left:4px solid var(--suyana-leaf); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
+          <span class="pill pill-leaf">C</span> <strong>Consultado (Consulted):</strong> Asesora técnicamente (vía bidireccional).
+        </div>
+        <div style="background:var(--bg-pearl); border-left:4px solid var(--slate-dark); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
+          <span class="pill pill-slate">I</span> <strong>Informado (Informed):</strong> Recibe alertas/reportes (unidireccional).
+        </div>
+      </div>
+
+      <table class="exec-table">
+        <thead>
+          <tr>
+            <th style="width:28%;">Fase del Ciclo DQA / Tarea</th>
+            <th style="width:12%; text-align:center;">Equipo de Campo</th>
+            <th style="width:12%; text-align:center;">Coordinadores Programa</th>
+            <th style="width:16%; text-align:center; background:#D97706;">★ Especialista MEAL (Foco)</th>
+            <th style="width:12%; text-align:center;">Responsable Sistemas</th>
+            <th style="width:10%; text-align:center;">Impact Mgmt (HQ)</th>
+            <th style="width:10%; text-align:center;">Dirección Programa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Prevenir el error</strong> (en origen vía diseño XLSForm y en registro de campo)</td>
+            <td style="text-align:center;"><span class="pill pill-green">R</span> (Captura)</td>
+            <td style="text-align:center;"><span class="pill pill-amber">A</span></td>
+            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-leaf">C</span> (Diseña reglas)</td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+          </tr>
+          <tr>
+            <td><strong>2. Identificar el error</strong> (mediante rutinas automatizadas de validación DQA)</td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Audita)</td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+          </tr>
+          <tr>
+            <td><strong>3. Comunicar el error</strong> (alertas focalizadas y tableros de seguimiento)</td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Reporta)</td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+          </tr>
+          <tr>
+            <td><strong>4. Corregir el error</strong> (en fuente primaria o vía limpieza automatizada ETL)</td>
+            <td style="text-align:center;"><span class="pill pill-green">R</span> (Dato campo)</td>
+            <td style="text-align:center;"><span class="pill pill-amber">A</span></td>
+            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> (Vía ETL) / <span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+          </tr>
+          <tr>
+            <td><strong>5. Verificar la corrección</strong> (validación de integridad antes de pasar a Power BI)</td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Valida SSOT)</td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+          </tr>
+          <tr>
+            <td><strong>6. Analizar errores recurrentes</strong> (diagnóstico de causa raíz humana vs. sistema)</td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Lidera análisis)</td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+          </tr>
+          <tr>
+            <td><strong>7. Decidir cuándo escalar un problema</strong> (fallas estructurales o incumplimiento grave)</td>
+            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> (Propone escalar)</td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td style="text-align:center;"><span class="pill pill-amber">A</span> (Decide)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout">
+        <strong>Principio de Gobernanza MEAL:</strong> El Especialista MEAL actúa como <strong>arquitecto y garante de calidad</strong> (automatiza la detección y validación), liberando a los Coordinadores y Equipos de Campo de revisiones manuales burocráticas en hojas de cálculo.
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Caso 3: Calidad de Datos (DQA) | Matriz de Roles y Responsabilidades RACI</span>
+      <span>Diapositiva 8 de 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 9: TAREA 3B (ESTRATEGIA INTEGRAL 3 DIMENSIONES) ==================== -->
+  <section class="slide">
+    <div class="slide-header">
+      <div>
+        <span class="slide-kicker">Caso 3 · Solución a la Persistencia de Errores (40% sin cerrar a los 2 meses)</span>
+        <h2 class="slide-title">Tarea 3B: Estrategia de Mitigación en 3 Dimensiones (Cero Carga Administrativa)</h2>
+      </div>
+      <span class="slide-badge">100 Errores Resueltos desde la Raíz</span>
+    </div>
+
+    <div class="slide-body">
+      <div class="callout amber">
+        <strong>Diagnóstico de Causa Raíz:</strong> El proceso actual fracasa porque intenta corregir <em>después</em> de la captura mediante reportes administrativos manuales. La solución traslada el control al <strong>formulario KoboToolbox</strong> y al <strong>pipeline ETL</strong>, reduciendo en &gt;85% los errores antes de que existan.
+      </div>
+
+      <div class="grid-3" style="flex:1;">
+        <!-- Dimensión 1: Formulario XLSForm -->
+        <div class="card" style="border-top-width:5px;">
+          <h3>1. Prevención en Origen (XLSForm) <span class="pill pill-green">58% de Errores</span></h3>
+          <p style="color:var(--suyana-green); font-weight:600;">Bloqueo preventivo en KoboToolbox durante el llenado (0% retrabajo posterior):</p>
+          <ul>
+            <li><strong>Campo obligatorio vacío (24 casos · Recurrente):</strong> Configurar columna <code>required = yes</code>. El formulario impide avanzar sin respuesta.</li>
+            <li><strong>Fecha nacimiento &gt; encuesta (18 casos · Recurrente):</strong> Regla lógica <code>constraint: . &lt;= today()</code> con mensaje de alerta inmediato.</li>
+            <li><strong>Comunidad ≠ Municipio (11 casos · Recurrente):</strong> Menú en cascada (<code>choice_filter</code> por municipio) para mostrar solo comunidades válidas.</li>
+            <li><strong>Año intervención incorrecto (5 casos · Ocasional):</strong> Captura automática vía metadatos (<code>today</code>) o valor por defecto bloqueado (<code>read_only = yes</code>).</li>
+          </ul>
+        </div>
+
+        <!-- Dimensión 2: Pipeline ETL -->
+        <div class="card leaf-top" style="border-top-width:5px;">
+          <h3>2. Limpieza Automatizada (ETL) <span class="pill pill-leaf">Datos Limpios</span></h3>
+          <p style="color:var(--suyana-leaf); font-weight:600;">Automatización vía Python / Power Query conectada por API a KoboToolbox:</p>
+          <ul>
+            <li><strong>Código encuestador ≠ equipo asignado (7 casos · Ocasional):</strong> Tabla maestra relacional en el ETL que cruza el <code>username</code> / ID del dispositivo y corrige automáticamente la asignación de equipo.</li>
+            <li><strong>Detección automática de duplicados exactos:</strong> Script de deduplicación basado en llave compuesta (<code>ID_Beneficiario + Fecha + Subprograma</code>) antes de publicar en el modelo semántico de <strong>Power BI (SSOT)</strong>.</li>
+            <li><strong>Impacto:</strong> Elimina el envío de listas de Excel para corrección manual por parte de los coordinadores.</li>
+          </ul>
+        </div>
+
+        <!-- Dimensión 3: Micro-espacios -->
+        <div class="card amber-top" style="border-top-width:5px;">
+          <h3>3. Micro-Espacios de Facilitación <span class="pill pill-amber">35 Duplicados</span></h3>
+          <p style="color:#B45309; font-weight:600;">Gestión del cambio empática y focalizada para "Registros Duplicados" (35 casos):</p>
+          <ul>
+            <li><strong>Investigación empática:</strong> Los duplicados suelen ocurrir por incertidumbre en el envío offline o doble pulsación al sincronizar en zonas sin señal.</li>
+            <li><strong>Acción sin saturar al equipo:</strong> En lugar de talleres masivos repetitivos, realizar <strong>micro-sesiones 1 a 1 (10–15 min)</strong> en terreno solo con los encuestadores que presentan recurrencia.</li>
+            <li><strong>Cierre del 40% pendiente:</strong> Amnistía técnica mediante limpieza asistida por MEAL + Sistemas para sanear el pasivo histórico y arrancar con el XLSForm blindado.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="slide-footer">
+      <span>Caso 3: Calidad de Datos (DQA) | Mitigación Tecnológica, ETL y Facilitación</span>
+      <span>Diapositiva 9 de 10</span>
+    </div>
+  </section>
+
+  <!-- ==================== SLIDE 10: CIERRE Y SOUNDBITE ==================== -->
+  <section class="slide" style="background: linear-gradient(135deg, #003926 0%, #002216 70%, #1E293B 100%); color: white; justify-content: center; align-items: center; text-align: center;">
+    <div style="max-width: 840px; padding: 20px;">
+      <span class="pill pill-amber" style="font-size:0.8rem; padding:6px 16px; margin-bottom:16px;">
+        Stiftung Suyana · Especialista MEAL y Gestión del Conocimiento
+      </span>
+      <h1 style="font-family:'Montserrat',sans-serif; font-size:2.8rem; font-weight:800; color:#FFFFFF; margin-bottom: 20px;">
+        ¡Muchas Gracias!
+      </h1>
+
+      <div style="background:rgba(255,255,255,0.08); border-left: 6px solid #D97706; border-right: 6px solid #2E7D32; padding: 22px 28px; border-radius: 12px; margin-bottom: 26px; text-align: left;">
+        <p style="font-family:'Montserrat',sans-serif; font-size:1.08rem; font-weight:600; line-height:1.5; color:#FFFFFF; font-style:italic;">
+          “Un sistema MEAL de excelencia no añade carga burocrática al terreno: <span style="color:#FBBF24;">blinda la calidad del dato en el origen</span>, convierte la evidencia en <span style="color:#6EE7B7;">decisiones estratégicas oportunas</span> y transforma cada intervención rural o urbana en aprendizaje vivo para las familias bolivianas.”
+        </p>
+      </div>
+
+      <div class="grid-3" style="text-align:left; gap:14px; margin-bottom:24px;">
+        <div style="background:rgba(0,0,0,0.3); padding:12px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.15);">
+          <div style="color:#FBBF24; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem;">1. Rigor Metodológico</div>
+          <div style="font-size:0.74rem; color:#E2E8F0; margin-top:4px;">Evaluaciones mixtas OCDE-CAD, Análisis de Contribución y Teorías de Cambio adaptativas.</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.3); padding:12px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.15);">
+          <div style="color:#6EE7B7; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem;">2. Arquitectura de Datos</div>
+          <div style="font-size:0.74rem; color:#E2E8F0; margin-top:4px;">Dominio end-to-end: XLSForm (KoboToolbox), automatización ETL (Python) y Power BI (SSOT).</div>
+        </div>
+        <div style="background:rgba(0,0,0,0.3); padding:12px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.15);">
+          <div style="color:#38BDF8; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem;">3. Liderazgo Facilitador</div>
+          <div style="font-size:0.74rem; color:#E2E8F0; margin-top:4px;">Certificación PMP®, empatía con equipos de campo y articulación entre Bolivia y HQ Suiza.</div>
+        </div>
+      </div>
+
+      <div style="font-size:0.9rem; color:#FBBF24; font-weight:600;">
+        Miguel Ángel Arciénega Avilés · Listo para la ronda de preguntas y discusión (10–15 min)
+      </div>
+    </div>
+
+    <div class="slide-footer" style="background:rgba(0,0,0,0.4); border-top-color:rgba(255,255,255,0.15); color:#CBD5E1;">
+      <span>Defensa Caso Práctico — Especialista MEAL Fundación Suyana</span>
+      <span>Diapositiva 10 de 10</span>
+    </div>
+  </section>
+
+</div>
+
+<!-- Barra de Controles de Presentación -->
+<div class="nav-bar">
+  <button class="nav-btn" onclick="changeSlide(-1)">◀ Anterior</button>
+  <span id="slideIndicator" style="font-family:'Montserrat',sans-serif; font-weight:700; min-width:90px; text-align:center;">1 / 10</span>
+  <button class="nav-btn" onclick="changeSlide(1)">Siguiente ▶</button>
+  <button class="nav-btn" style="background:#1E293B; border-color:#64748B;" onclick="toggleFullScreen()">⛶ Pantalla Completa</button>
+  <button class="nav-btn" style="background:#D97706; border-color:#FBBF24;" onclick="window.print()">🖨 Exportar PDF (16:9)</button>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const indicator = document.getElementById('slideIndicator');
+
+  function showSlide(index) {
+    if (index < 0) index = 0;
+    if (index >= slides.length) index = slides.length - 1;
+    slides.forEach((s, i) => s.classList.toggle('active', i === index));
+    currentSlide = index;
+    indicator.textContent = (currentSlide + 1) + ' / ' + slides.length;
+  }
+
+  function changeSlide(step) {
+    showSlide(currentSlide + step);
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
+      e.preventDefault();
+      changeSlide(1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
+      e.preventDefault();
+      changeSlide(-1);
+    }
+  });
+
+  function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else if (document.exitFullscreen) {
+      document.exitFullscreen();
+    }
+  }
+
+  function toggleMatrix(mode, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const priorityRows = document.querySelectorAll('#evalMatrix .priority-item');
+    const nonPriorityRows = document.querySelectorAll('#evalMatrix .non-priority-item');
+    if (mode === 'priority') {
+      priorityRows.forEach(r => r.classList.add('priority-row'));
+      nonPriorityRows.forEach(r => r.style.opacity = '0.45');
+    } else {
+      priorityRows.forEach(r => r.classList.remove('priority-row'));
+      nonPriorityRows.forEach(r => r.style.opacity = '1');
+    }
+  }
+</script>
+</body>
+</html>
+Mostrando Presentacion_Ejecutiva_MEAL_Suyana.html
