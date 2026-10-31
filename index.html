@@ -303,22 +303,31 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     color: white;
   }
 
-/* Impresión a PDF exacta en 16:9 */
+/* Impresión a PDF exacta en 16:9 (CORREGIDO) */
   @media print {
+    @page {
+      size: landscape;
+      margin: 0;
+    }
     html, body { 
       background: white !important; 
-      overflow: visible !important; 
-      height: auto !important; 
       display: block !important; 
+      height: auto !important; 
+      overflow: visible !important; 
+      margin: 0 !important;
+      padding: 0 !important;
     }
     .deck-viewport { 
+      display: block !important; 
       width: 100% !important; 
       height: auto !important; 
       max-width: none !important; 
       max-height: none !important; 
       box-shadow: none !important; 
-      display: block !important; 
       overflow: visible !important; 
+      background: transparent !important;
+      margin: 0 !important;
+      padding: 0 !important;
     }
     .slide { 
       display: flex !important; 
@@ -326,16 +335,19 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       visibility: visible !important;
       page-break-after: always !important; 
       page-break-inside: avoid !important;
+      break-after: page !important;
       height: 100vh !important; 
+      max-height: 100vh !important;
       width: 100vw !important; 
       position: relative !important; 
+      overflow: hidden !important; /* Corta cualquier milímetro sobrante que cause el salto a 2 páginas */
+      animation: none !important; /* APAGA LAS ANIMACIONES EN EL PDF PARA EVITAR PÁGINAS BLANCAS */
+      transition: none !important;
+      transform: none !important;
+      margin: 0 !important;
     }
     .nav-bar { display: none !important; }
-    
-    /* Fuerza al navegador a usar formato horizontal sin márgenes */
-    @page {
-      size: landscape;
-      margin: 0;
+  }
     }
   }
 </style>
