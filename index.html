@@ -305,19 +305,34 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
 
 /* Impresión a PDF exacta en 16:9 */
   @media print {
-    body { background: white; overflow: visible; height: auto; display: block; }
-    .deck-viewport { width: 100%; height: auto; max-width: none; max-height: none; box-shadow: none; display: block; overflow: visible; }
+    html, body { 
+      background: white !important; 
+      overflow: visible !important; 
+      height: auto !important; 
+      display: block !important; 
+    }
+    .deck-viewport { 
+      width: 100% !important; 
+      height: auto !important; 
+      max-width: none !important; 
+      max-height: none !important; 
+      box-shadow: none !important; 
+      display: block !important; 
+      overflow: visible !important; 
+    }
     .slide { 
       display: flex !important; 
       opacity: 1 !important; 
-      page-break-after: always; 
-      height: 100vh; 
-      width: 100vw; 
+      visibility: visible !important;
+      page-break-after: always !important; 
+      page-break-inside: avoid !important;
+      height: 100vh !important; 
+      width: 100vw !important; 
       position: relative !important; 
     }
     .nav-bar { display: none !important; }
     
-    /* Configuración de página para PDF apaisado */
+    /* Fuerza al navegador a usar formato horizontal sin márgenes */
     @page {
       size: landscape;
       margin: 0;
