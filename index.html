@@ -422,10 +422,47 @@
 
   /* Impresión a PDF exacta en 16:9 */
   @media print {
-    @page { size: landscape; margin: 0; }
-    html, body { background: white !important; display: block !important; height: auto !important; overflow: visible !important; margin: 0 !important; padding: 0 !important; }
-    .deck-viewport { display: block !important; width: 100% !important; height: auto !important; max-width: none !important; max-height: none !important; box-shadow: none !important; overflow: visible !important; background: transparent !important; margin: 0 !important; padding: 0 !important; }
-    .slide { display: flex !important; opacity: 1 !important; visibility: visible !important; page-break-after: always !important; page-break-inside: avoid !important; height: 100vh !important; width: 100vw !important; position: relative !important; overflow: hidden !important; animation: none !important; transition: none !important; transform: none !important; margin: 0 !important; }
+    @page {
+      size: landscape;
+      margin: 0;
+    }
+    html, body { 
+      background: white !important; 
+      display: block !important; 
+      height: auto !important; 
+      overflow: visible !important; 
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .deck-viewport { 
+      display: block !important; 
+      width: 100% !important; 
+      height: auto !important; 
+      max-width: none !important; 
+      max-height: none !important; 
+      box-shadow: none !important; 
+      overflow: visible !important; 
+      background: transparent !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .slide { 
+      display: flex !important; 
+      opacity: 1 !important; 
+      visibility: visible !important;
+      page-break-after: always !important; 
+      page-break-inside: avoid !important;
+      break-after: page !important;
+      height: 100vh !important; 
+      max-height: 100vh !important;
+      width: 100vw !important; 
+      position: relative !important; 
+      overflow: hidden !important; /* Corta cualquier milímetro sobrante que cause el salto a 2 páginas */
+      animation: none !important; /* APAGA LAS ANIMACIONES EN EL PDF PARA EVITAR PÁGINAS BLANCAS */
+      transition: none !important;
+      transform: none !important;
+      margin: 0 !important;
+    }
     .nav-bar { display: none !important; }
   }
 </style>
@@ -636,7 +673,7 @@
     <div class="slide-body">
       <div class="split-layout">
         <div class="split-image-container">
-          <img src="img/umovil.jpg" alt="Unidad Móvil Suyana" class="split-image">
+          <img src="img/umovil.png" alt="Unidad Móvil Suyana" class="split-image">
           <div class="image-overlay-card">
             <h4 style="font-family:'Montserrat',sans-serif; font-size:0.85rem; margin-bottom:4px; color:var(--amber-light);">Desafío Logístico y Operativo</h4>
             <p style="font-size:0.75rem; line-height:1.4; color:#E2E8F0;">
