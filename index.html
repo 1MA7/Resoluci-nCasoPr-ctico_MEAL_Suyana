@@ -303,7 +303,7 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     color: white;
   }
 
-/* Impresión a PDF exacta en 16:9 (CORREGIDO) */
+  /* Impresión a PDF exacta en 16:9 */
   @media print {
     @page {
       size: landscape;
@@ -348,7 +348,685 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     }
     .nav-bar { display: none !important; }
   }
-    }
+/* ==================== CÍRCULO VIRTUOSO CSS ==================== */
+ /* ==================== CÍRCULO VIRTUOSO CSS (ANIMADO) ==================== */
+  .virtuous-diagram {
+    display: grid;
+    grid-template-columns: 1fr 140px 1fr;
+    grid-template-rows: 1fr 140px 1fr auto; /* Fila extra para los Criterios OCDE */
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+    background: var(--bg-pearl);
+    border: 1px solid var(--border-silver);
+    border-radius: 8px;
+    padding: 15px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Animación Continua del Circuito */
+  @keyframes spinTrack { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+  
+  .vd-track {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border: 2px dashed var(--border-silver);
+    border-radius: 50%;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0deg);
+    z-index: 1;
+    animation: spinTrack 30s linear infinite; /* Movimiento perpetuo suave */
+  }
+
+  /* Núcleo Central con Efecto Hover (Resalte) */
+  .vd-core {
+    grid-column: 2;
+    grid-row: 2;
+    background: var(--suyana-green);
+    color: white;
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 8px 16px rgba(0,57,38,0.25);
+    border: 4px solid var(--bg-mint);
+    z-index: 2;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+  }
+  .vd-core:hover {
+    transform: scale(1.12); /* Aumenta de tamaño al pasar el mouse */
+    box-shadow: 0 15px 25px rgba(0, 57, 38, 0.5);
+    background: #002216;
+    border-color: var(--amber-light);
+  }
+  .vd-core strong { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; line-height: 1.1; }
+  .vd-core span { font-size: 0.65rem; color: var(--amber-light); margin-top: 4px; transition: color 0.3s; }
+
+  /* Nodos Periféricos con Efecto Hover */
+  .vd-node {
+    background: white;
+    border-radius: 8px;
+    padding: 10px 12px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+    border-top: 4px solid var(--suyana-leaf);
+    width: 100%;
+    max-width: 170px;
+    z-index: 2;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  .vd-node:hover {
+    transform: translateY(-6px) scale(1.04); /* Salta ligeramente hacia el usuario */
+    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
+    border-top-width: 6px;
+  }
+  .vd-node h4 { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: var(--slate-dark); margin-bottom: 4px; }
+  .vd-node p { font-size: 0.65rem; color: var(--slate-muted); line-height: 1.3; }
+
+  /* Posiciones de la grilla */
+  .vd-node-1 { grid-column: 2; grid-row: 1; border-top-color: var(--slate-muted); }
+  .vd-node-2 { grid-column: 3; grid-row: 2; border-top-color: var(--amber-meal); }
+  .vd-node-3 { grid-column: 2; grid-row: 3; border-top-color: var(--suyana-leaf); }
+  .vd-node-4 { grid-column: 1; grid-row: 2; border-top-color: var(--amber-meal); }
+
+  /* Flechas indicadoras */
+  .vd-arrow { font-size: 1.2rem; color: var(--amber-meal); z-index: 2; font-weight: bold; opacity: 0.8; transition: opacity 0.3s; }
+  .arrow-top { grid-column: 2; grid-row: 1 / span 2; align-self: end; margin-bottom: 12px; }
+  .arrow-right { grid-column: 2 / span 2; grid-row: 2; justify-self: start; margin-left: 12px; transform: rotate(90deg); }
+  .arrow-bottom { grid-column: 2; grid-row: 2 / span 2; align-self: start; margin-top: 12px; transform: rotate(180deg); }
+  .arrow-left { grid-column: 1 / span 2; grid-row: 2; justify-self: end; margin-right: 12px; transform: rotate(-90deg); }
+
+  /* Base Criterios OCDE-CAD */
+  .ocde-criteria-bar {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px dashed var(--border-silver);
+    width: 100%;
+  }
+  .ocde-tag {
+    font-size: 0.62rem;
+    font-family: 'Montserrat', sans-serif;
+    background: rgba(100, 116, 139, 0.08);
+    color: var(--slate-dark);
+    padding: 4px 10px;
+    border-radius: 12px;
+    border: 1px solid var(--border-silver);
+    font-weight: 700;
+    transition: all 0.25s ease;
+    cursor: default;
+  }
+  .ocde-tag:hover {
+    background: var(--amber-meal);
+    color: white;
+    border-color: var(--amber-meal);
+    transform: translateY(-2px);
+  }
+/* ==================== SLIDE 4: SPLIT LAYOUT & STEPPER ==================== */
+  .split-layout {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    height: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-silver);
+    background: var(--white);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  }
+
+  .split-image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: var(--slate-dark);
+  }
+
+  .split-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: transform 6s ease;
+  }
+  
+  .slide.active .split-image {
+    transform: scale(1.08); /* Efecto zoom lento al entrar a la diapo */
+  }
+
+  .image-overlay-card {
+    position: absolute;
+    top: 50%; /* Lo baja a la mitad exacta de la imagen */
+    transform: translateY(-50%); /* Lo centra perfectamente en su propio eje */
+    left: 20px;
+    right: 20px;
+    background: rgba(0, 34, 22, 0.85);
+    backdrop-filter: blur(4px);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--amber-meal);
+    color: white;
+  }
+
+  .split-content {
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Stepper de Riesgos (Línea de progresión) */
+  .risk-stepper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    position: relative;
+  }
+
+  .risk-stepper::before {
+    content: '';
+    position: absolute;
+    left: 14px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: var(--border-silver);
+    z-index: 1;
+  }
+
+  .step-item {
+    display: flex;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+    align-items: flex-start;
+    transition: transform 0.2s ease;
+  }
+  
+  .step-item:hover {
+    transform: translateX(5px);
+  }
+
+  .step-marker {
+    min-width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: white;
+    background: var(--suyana-green);
+    box-shadow: 0 0 0 4px var(--white);
+  }
+
+  .step-marker.critical { background: #DC2626; }
+  .step-marker.amber { background: var(--amber-meal); }
+
+  .step-text {
+    background: var(--bg-pearl);
+    padding: 10px 14px;
+    border-radius: 6px;
+    border: 1px solid var(--border-silver);
+    width: 100%;
+  }
+
+  .step-text h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: var(--slate-dark);
+    margin-bottom: 3px;
+  }
+
+  .step-text p {
+    font-size: 0.7rem;
+    color: var(--suyana-leaf);
+    font-weight: 600;
+    line-height: 1.3;
+  }
+/* ==================== SLIDE 5: GANTT INTERACTIVO ==================== */
+  .gantt-toggle-bar {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  .gantt-toggle-btn {
+    padding: 6px 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border: 1px solid var(--suyana-green);
+    background: white;
+    color: var(--suyana-green);
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .gantt-toggle-btn.active {
+    background: var(--suyana-green);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,57,38,0.25);
+  }
+  
+  .gantt-view {
+    display: none;
+    animation: fadeIn 0.4s ease;
+    height: 100%;
+    flex-direction: column;
+  }
+  .gantt-view.active { display: flex; }
+
+  /* Grid Visual del Cronograma */
+  .gantt-visual-grid {
+    display: grid;
+    grid-template-columns: 220px repeat(4, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+    align-items: center;
+  }
+  .gantt-header-col {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--slate-muted);
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border-silver);
+  }
+  .gantt-row-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--slate-dark);
+    text-align: right;
+    padding-right: 15px;
+    border-right: 2px solid var(--border-silver);
+  }
+  .gantt-track {
+    background: rgba(100,116,139,0.06);
+    border-radius: 6px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    padding: 0 4px;
+    position: relative;
+  }
+  
+  /* Barras Animadas */
+  .gantt-bar {
+    height: 28px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, filter 0.3s;
+    width: 0%; /* Inicia en 0 para la animación */
+  }
+  .gantt-bar:hover {
+    transform: scaleY(1.15);
+    filter: brightness(1.1);
+  }
+
+  /* Keyframes para llenar las barras */
+  @keyframes fillBar100 { to { width: 100%; } }
+  .gantt-view.active .gantt-bar { animation: fillBar100 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+  
+  .bg-suyana { background: var(--suyana-green); }
+  .bg-leaf { background: var(--suyana-leaf); }
+  .bg-amber { background: var(--amber-meal); }
+
+/* ==================== SLIDE 7: CO-CREACIÓN Y TEORÍA DE CAMBIO ==================== */
+  .slide-7-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    height: 100%;
+  }
+
+  /* Momento 1: Tarjetas Animadas */
+  .m1-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+  .m1-card {
+    background: var(--white);
+    border: 1px solid var(--border-silver);
+    border-top: 4px solid var(--suyana-leaf);
+    border-radius: 8px;
+    padding: 12px 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+  }
+  .m1-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+    border-top-color: var(--amber-meal);
+  }
+  .m1-card h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    color: var(--suyana-green);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .m1-card p {
+    font-size: 0.7rem;
+    color: var(--slate-dark);
+    line-height: 1.3;
+  }
+
+  /* Momento 2: Teoría de Cambio Proporcional */
+  .toc-wrapper {
+    position: relative;
+    padding: 35px 15px 25px 15px; /* Espacio ajustado para supuestos y etiqueta MEAL */
+    border: 2px dashed var(--amber-meal);
+    border-radius: 8px;
+    background: rgba(255, 251, 235, 0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .toc-meal-label {
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--white);
+    color: var(--amber-meal);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 0 15px;
+  }
+
+  .toc-chevrons {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    position: relative;
+    min-height: 110px;
+  }
+
+  /* Reto integrado en el flujo (ya no se corta) */
+  .toc-challenge {
+    background: var(--amber-meal);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 10px 20px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    clip-path: polygon(0% 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 0% 100%);
+    z-index: 5;
+    width: 130px;
+    margin-right: -10px; /* Efecto de solapamiento */
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+  }
+
+  .toc-step {
+    flex: 1;
+    position: relative;
+    padding: 12px 12px 12px 25px;
+    color: var(--white);
+    margin-left: -15px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Formas Chevron Suyana */
+  .toc-step:nth-child(3) { clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%); z-index: 4; background: #003926; } /* Insumos */
+  .toc-step:nth-child(4) { clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%); z-index: 3; background: #1B5E20; } /* Productos */
+  .toc-step:nth-child(5) { clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%); z-index: 2; background: #388E3C; } /* Resultados */
+  .toc-step:nth-child(6) { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 15px 50%); z-index: 1; background: #66BB6A; } /* Impacto */
+
+  .toc-step:hover {
+    transform: scale(1.08) translateY(-5px);
+    z-index: 10 !important;
+    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
+  }
+
+  .toc-step h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 3px;
+  }
+
+  .toc-step ul {
+    font-size: 0.62rem;
+    line-height: 1.25;
+    padding-left: 12px;
+  }
+  .toc-step li { margin-bottom: 3px; }
+
+  /* Supuestos - Posicionamiento de "Puente" exacto */
+  .toc-assumptions-container {
+    position: absolute;
+    top: -24px;
+    left: 130px; /* Inicia después de la caja de Reto */
+    width: calc(100% - 130px); /* Cubre solo el área de los chevrons */
+    height: 25px;
+    pointer-events: none;
+    z-index: 10;
+  }
+  
+  .toc-assumption {
+    position: absolute;
+    font-size: 0.6rem;
+    font-weight: 700;
+    color: var(--slate-muted);
+    transform: translateX(-50%);
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .toc-assumption::after {
+    content: '⤵'; /* Símbolo de puente visual */
+    color: var(--amber-meal);
+    font-size: 0.9rem;
+    margin-top: -3px;
+  }
+
+  /* Posiciones matemáticas sobre las uniones de las flechas */
+  .assump-1 { left: 25%; }
+  .assump-2 { left: 50%; }
+  .assump-3 { left: 75%; }
+/* ==================== SLIDE 8: MATRIZ RACI INTERACTIVA ==================== */
+  .raci-legend-btn {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+    position: relative;
+  }
+  .raci-legend-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+  .raci-legend-btn.active {
+    background: var(--white) !important;
+    box-shadow: 0 0 0 2px var(--amber-meal), 0 4px 12px rgba(217, 119, 6, 0.15);
+  }
+  
+  /* Celdas de la tabla */
+  .raci-cell {
+    transition: opacity 0.3s ease, filter 0.3s ease;
+  }
+  
+  /* Clase que opaca las celdas no seleccionadas */
+  .raci-dimmed {
+    opacity: 0.15;
+    filter: grayscale(100%);
+  }
+/* ==================== SLIDE 9: ACORDEÓN HORIZONTAL (DQA) ==================== */
+  .accordion-container {
+    display: flex;
+    gap: 12px;
+    height: 100%;
+    margin-top: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .accordion-item {
+    flex: 1; /* Todas inician del mismo tamaño */
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    background-color: var(--slate-dark);
+  }
+  
+  /* Expansión dinámica al pasar el ratón */
+  .accordion-item:hover {
+    flex: 4; /* Se hace 4 veces más grande que las demás */
+  }
+
+  .acc-bg-image {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    object-fit: cover;
+    opacity: 0.35; /* Oscurecida por defecto */
+    transition: all 0.6s ease;
+    filter: grayscale(80%);
+  }
+
+  /* La imagen se ilumina al expandirse */
+  .accordion-item:hover .acc-bg-image {
+    opacity: 0.2; /* Aún oscura para leer texto */
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  /* Contenido base (siempre visible) */
+  .acc-header {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: bottom 0.6s ease;
+    z-index: 10;
+  }
+  
+  .acc-number {
+    background: var(--amber-meal);
+    color: white;
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 800; font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+  
+  .acc-title {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
+    white-space: nowrap; /* No se rompe la línea */
+  }
+
+  /* Contenido detallado (Oculto por defecto, visible al expandir) */
+  .acc-details {
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    right: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    transition-delay: 0.1s;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--suyana-green);
+    pointer-events: none;
+    z-index: 5;
+    /* Evitar que el texto se rompa feo mientras se expande */
+    min-width: 380px; 
+  }
+
+  .accordion-item:hover .acc-header {
+    bottom: 15px; /* Baja un poco el título */
+  }
+
+  .accordion-item:hover .acc-details {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .acc-details h4 {
+    color: var(--suyana-green);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    margin-bottom: 8px;
+    border-bottom: 2px solid var(--border-silver);
+    padding-bottom: 4px;
+  }
+
+  .acc-details ul {
+    padding-left: 15px;
+    font-size: 0.72rem;
+    color: var(--slate-dark);
+    line-height: 1.4;
+  }
+
+  .acc-details li { margin-bottom: 8px; }
+  
+  /* Estilo para los bloques de código */
+  .code-snippet {
+    background: #1E293B;
+    color: #38BDF8;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: bold;
   }
 </style>
 </head>
@@ -400,56 +1078,91 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     <div class="slide-header">
       <div>
         <span class="slide-kicker">Caso 1 · Evaluación Programa Municipio Saludable (PMS 2024–2026)</span>
-        <h2 class="slide-title">Tarea 1A: Enfoque de Integración Mixta Participativa (Círculo Virtuoso)</h2>
+        <h2 class="slide-title">Tarea 1A: Enfoque Mixto Participativo (El "Por Qué" de los Datos)</h2>
       </div>
       <span class="slide-badge">Evaluación Final Integral + Cohorte 2021–2023</span>
     </div>
 
     <div class="slide-body">
-      <div class="grid-2" style="grid-template-columns: 1.35fr 1fr; align-items:stretch;">
-        <!-- Diagrama SVG del Círculo Virtuoso -->
-        <div style="background:var(--bg-pearl); border:1px solid var(--border-silver); border-radius:8px; padding:12px; display:flex; flex-direction:column; justify-content:space-between;">
-          <div style="font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:700; color:var(--suyana-green); text-align:center;">
+      <div class="grid-2" style="grid-template-columns: 1.25fr 1fr; align-items:stretch;">
+        
+        <!-- COLUMNA IZQUIERDA: DIAGRAMA CÍRCULO VIRTUOSO ANIMADO -->
+        <div class="virtuous-diagram">
+          <div class="vd-track"></div>
+          
+          <div class="vd-core">
+            <strong>Triangulación Concurrente</strong>
+            <span>Cruce Autónomo</span>
           </div>
-         <img src="img/metodologia.jpeg" alt="Arquitectura del Círculo Virtuoso de Retroalimentación y Triangulación" style="width: 100%; height: auto; border-radius: 8px;">
-          <div style="font-size:0.71rem; color:var(--slate-muted); text-align:center;">
-            <strong>Círculo Virtuoso:</strong> Redistribuye el poder evaluativo involucrando a los actores territoriales como coinvestigadores.
+
+          <div class="vd-node vd-node-1">
+            <h4>1. Diagnóstico Base</h4>
+            <p>Revisión documental y marco metodológico.</p>
+          </div>
+          <div class="vd-node vd-node-2">
+            <h4>2. Dimensión Cuanti</h4>
+            <p>Arquitectura SSOT, KoboToolbox y Power BI.</p>
+          </div>
+          <div class="vd-node vd-node-3">
+            <h4>3. Dimensión Cuali</h4>
+            <p>Cambio Más Significativo (MSC) y Focus Groups.</p>
+          </div>
+          <div class="vd-node vd-node-4">
+            <h4>4. Análisis Contribución</h4>
+            <p>Cruce de variables vs. TOC.</p>
+          </div>
+
+          <div class="vd-arrow arrow-top">⬇</div>
+          <div class="vd-arrow arrow-right">⬇</div>
+          <div class="vd-arrow arrow-bottom">⬇</div>
+          <div class="vd-arrow arrow-left">⬇</div>
+
+          <!-- Base: 6 Criterios OCDE-CAD -->
+          <div class="ocde-criteria-bar">
+            <span class="ocde-tag">PERTINENCIA</span>
+            <span class="ocde-tag">COHERENCIA</span>
+            <span class="ocde-tag">EFICACIA</span>
+            <span class="ocde-tag">EFICIENCIA</span>
+            <span class="ocde-tag">IMPACTO</span>
+            <span class="ocde-tag">SOSTENIBILIDAD</span>
           </div>
         </div>
 
-        <!-- Columna Derecha: Justificación Metodológica y Fuentes -->
+        <!-- COLUMNA DERECHA: PITCH EJECUTIVO -->
         <div style="display:flex; flex-direction:column; justify-content:space-between; gap:10px;">
-          <div class="callout amber">
-            <strong>¿Por qué Análisis de Contribución y NO Atribución Experimental?</strong><br>
-            El ToR menciona "evaluación de impacto", pero aplicar los <strong>6 criterios OCDE-CAD</strong> exige una <strong>Evaluación Final Integral</strong>. Operamos en territorios complejos sin grupos de control (contrafactuales); por tanto, mediremos cómo el PMS <em>contribuyó</em> razonablemente a los cambios junto a otros factores externos.
+          
+          <div class="callout amber" style="font-size: 0.8rem;">
+            <strong>Análisis de Contribución (No Experimental):</strong><br>
+            Al operar sin grupos de control, la evaluación medirá cómo Suyana <em>contribuyó</em> al cambio frente a la presencia de otros actores territoriales.
           </div>
 
           <div class="card leaf-top">
-            <h3>Clasificación de Actores y Fuentes <span class="pill pill-leaf">Unidades de Análisis</span></h3>
+            <h3>Integración de 2 Mundos <span class="pill pill-leaf">Estrategia</span></h3>
             <ul>
-              <li><strong>Fuentes Primarias:</strong> (1) <em>Familias beneficiarias</em> (unidades familiares); (2) <em>Coordinación y actores municipales / líderes comunales</em>; (3) <em>Equipo técnico Suyana y 7 Unidades Móviles</em>.</li>
-              <li><strong>Fuentes Secundarias:</strong> Bases históricas KoboToolbox, tableros Power BI, reportes de monitoreo y documentos del Anexo 1.</li>
+              <li style="margin-bottom:6px;"><strong>Lo Cuantitativo:</strong> Cobertura extraída de KoboToolbox y Power BI.</li>
+              <li><strong>Lo Cualitativo:</strong> Entrevistas para capturar el verdadero impacto (MSC).</li>
             </ul>
           </div>
 
-          <div class="card">
-            <h3>Priorización Estratégica de Criterios OCDE-CAD <span class="pill pill-green">Foco Evaluativo</span></h3>
-            <ul>
-              <li><strong>Pertinencia:</strong> Validar alineación con demandas reales en PROMSA, Odontología, Educación y DESMA.</li>
-              <li><strong>Eficacia e Impacto:</strong> Ir más allá de metas físicas para explicar mecanismos de transformación familiar.</li>
-              <li><strong>Sostenibilidad (Cohorte 2021–2023):</strong> Verificar qué prácticas persisten hoy sin apoyo directo de Suyana.</li>
-            </ul>
+          <div class="card" style="border-top-color: var(--suyana-green);">
+            <h3>Estrategia de Muestreo <span class="pill pill-green">95% Nivel Confianza</span></h3>
+            <p>Se aplicará un <strong>muestreo estadístico estratificado</strong> sobre la población beneficiaria. Este rigor matemático garantiza la <strong>validez externa</strong> y la representatividad territorial de los hallazgos.</p>
           </div>
+
+          <div class="card">
+            <h3>Triangulación de Fuentes <span class="pill pill-slate">Validación Cruzada</span></h3>
+            <p>Cruce independiente entre Familias, Actores Municipales y Unidades Móviles para mitigar sesgos evaluativos.</p>
+          </div>
+
         </div>
       </div>
     </div>
 
     <div class="slide-footer">
-      <span>Caso 1: Evaluación PMS 2024–2026 | Propuesta Metodológica</span>
+      <span>Caso 1: Evaluación PMS 2024–2026 | Arquitectura Metodológica</span>
       <span>Diapositiva 2 de 10</span>
     </div>
   </section>
-
   <!-- ==================== SLIDE 3: TAREA 1B (MATRIZ DE EVALUACIÓN) ==================== -->
   <section class="slide">
     <div class="slide-header">
@@ -539,80 +1252,82 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
   </section>
 
   <!-- ==================== SLIDE 4: TAREA 1C (LIMITACIONES Y GESTIÓN DE RIESGOS) ==================== -->
+
   <section class="slide">
     <div class="slide-header">
       <div>
         <span class="slide-kicker">Caso 1 · Viabilidad, Rigor Metodológico y Gobernanza Evaluativa</span>
-        <h2 class="slide-title">Tarea 1C: Limitaciones y Desafíos bajo un Enfoque de Gestión de Riesgos</h2>
+        <h2 class="slide-title">Tarea 1C: Matriz de Riesgos y Gobernanza Evaluativa</h2>
       </div>
-      <span class="slide-badge">5 Restricciones Críticas Priorizadas</span>
+      <span class="slide-badge">Enfoque Preventivo</span>
     </div>
 
     <div class="slide-body">
-      <div class="grid-5">
-        <!-- Riesgo 1 -->
-        <div class="card amber-top">
-          <div>
-            <span class="pill pill-amber">Prioridad 1 · Crítico</span>
-            <h3 style="margin-top:6px;">1. Sesgo de Autoevaluación Interna</h3>
-          </div>
-          <p><strong>Desafío e Impacto:</strong> Al ser ejecutada por coordinadores y unidades móviles propias, existe riesgo de complacencia o pérdida de objetividad que reste credibilidad ante el Directorio.</p>
-          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
-            <strong>Mitigación:</strong> Involucrar transversalmente a <strong>Impact Management (HQ Suiza)</strong> como par revisor externo y aplicar triangulación independiente.
-          </div>
-        </div>
-
-        <!-- Riesgo 2 -->
-        <div class="card amber-top">
-          <div>
-            <span class="pill pill-amber">Prioridad 2 · Metodológico</span>
-            <h3 style="margin-top:6px;">2. Atribución vs. Contribución</h3>
-          </div>
-          <p><strong>Desafío e Impacto:</strong> Riesgo de realizar falsas inferencias causales ("sesgo del salvador") al carecer de grupo de control experimental para aislar el efecto exclusivo del PMS.</p>
-          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
-            <strong>Mitigación:</strong> Aplicar <strong>Análisis de Contribución</strong>, mapeando participativamente qué otros actores o programas públicos influyeron en el territorio.
+      <div class="split-layout">
+        
+        <!-- MITAD IZQUIERDA: CONTEXTO VISUAL (FOTOGRAFÍA) -->
+        <div class="split-image-container">
+         <img src="img/umovil.jpg" alt="Unidad Móvil Suyana" class="split-image">
+          
+          <div class="image-overlay-card">
+            <h4 style="font-family:'Montserrat',sans-serif; font-size:0.85rem; margin-bottom:4px; color:var(--amber-light);">Desafío Logístico y Operativo</h4>
+            <p style="font-size:0.75rem; line-height:1.4; color:#E2E8F0;">
+              Evaluar un programa de alta movilidad exige rigor para no interrumpir la atención médica de las 7 unidades. El diseño MEAL debe adaptarse al terreno, no al revés.
+            </p>
           </div>
         </div>
 
-        <!-- Riesgo 3 -->
-        <div class="card">
-          <div>
-            <span class="pill pill-green">Prioridad 3 · Datos</span>
-            <h3 style="margin-top:6px;">3. Calidad y Dispersión Histórica</h3>
+        <!-- MITAD DERECHA: STEPPER EJECUTIVO DE RIESGOS -->
+        <div class="split-content">
+          <div style="margin-bottom: 12px;">
+            <p style="font-size: 0.75rem; color: var(--slate-muted);">Para garantizar la credibilidad y viabilidad de la evaluación, hemos blindado 5 riesgos críticos:</p>
           </div>
-          <p><strong>Desafío e Impacto:</strong> Datos del trienio distribuidos en múltiples fuentes con posibles inconsistencias que distorsionen las conclusiones empíricas.</p>
-          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
-            <strong>Mitigación:</strong> <strong>Verificación, organización y categorización temprana</strong> durante la recopilación inicial para detectar vacíos críticos antes del análisis.
+
+          <div class="risk-stepper">
+            
+            <div class="step-item">
+              <div class="step-marker critical">1</div>
+              <div class="step-text" style="border-left: 3px solid #DC2626;">
+                <h4>Sesgo de Autoevaluación Interna</h4>
+                <p>➔ Mitigación: Auditoría cruzada y triangulación independiente con Impact Management (HQ Suiza).</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-marker amber">2</div>
+              <div class="step-text" style="border-left: 3px solid var(--amber-meal);">
+                <h4>Falsa Atribución Causal</h4>
+                <p>➔ Mitigación: Mapeo de actores y Análisis de Contribución (metodología no experimental).</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-marker">3</div>
+              <div class="step-text">
+                <h4>Dispersión y Calidad de Datos (DQA)</h4>
+                <p>➔ Mitigación: Verificación automatizada ETL y validación temprana de bases históricas.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-marker">4</div>
+              <div class="step-text">
+                <h4>Rotación del Personal Histórico</h4>
+                <p>➔ Mitigación: Grupos focales para reconstrucción de memoria institucional.</p>
+              </div>
+            </div>
+
+            <div class="step-item">
+              <div class="step-marker">5</div>
+              <div class="step-text">
+                <h4>Localización Cohorte (2021-2023)</h4>
+                <p>➔ Mitigación: Muestreo estratificado ex-post coordinado con autoridades originarias.</p>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <!-- Riesgo 4 -->
-        <div class="card">
-          <div>
-            <span class="pill pill-green">Prioridad 4 · Organizacional</span>
-            <h3 style="margin-top:6px;">4. Rotación del Personal Histórico</h3>
-          </div>
-          <p><strong>Desafío e Impacto:</strong> Pérdida de memoria institucional sobre decisiones operativas o ajustes realizados al inicio del ciclo 2024 o en 2021–2023.</p>
-          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
-            <strong>Mitigación:</strong> <strong>Revisión documental exhaustiva</strong> combinada con grupos focales de reconstrucción de memoria histórica con actores clave.
-          </div>
-        </div>
-
-        <!-- Riesgo 5 -->
-        <div class="card leaf-top">
-          <div>
-            <span class="pill pill-leaf">Prioridad 5 · Operativo</span>
-            <h3 style="margin-top:6px;">5. Localización Cohorte 2021–2023</h3>
-          </div>
-          <p><strong>Desafío e Impacto:</strong> Desgaste muestral, migración familiar o cambio de autoridades en municipios egresados que sesgue la medición ex-post de Sostenibilidad.</p>
-          <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--border-silver); font-size:0.72rem; color:var(--suyana-green);">
-            <strong>Mitigación:</strong> <strong>Muestreo estratificado ajustado</strong> y coordinación previa con autoridades originarias/municipales para ubicar unidades familiares.
-          </div>
-        </div>
-      </div>
-
-      <div class="callout">
-        <strong>Información Adicional que Solicitaría a HQ / Dirección:</strong> (1) Diccionario de variables y estado de completitud de registros 2024–2026; (2) Informes de cierre de la cohorte 2021–2023 para definir el marco muestral ex-post; (3) Disponibilidad horaria de las 7 unidades móviles para no competir con su atención médica/odontológica regular.
       </div>
     </div>
 
@@ -623,97 +1338,117 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
   </section>
 
   <!-- ==================== SLIDE 5: TAREA 1D (PLAN DE 30 DÍAS - GANTT) ==================== -->
+  <!-- ==================== SLIDE 5: TAREA 1D (PLAN DE 30 DÍAS - GANTT) ==================== -->
   <section class="slide">
     <div class="slide-header">
       <div>
         <span class="slide-kicker">Caso 1 · Ruta Crítica de Preparación e Inicio (Inception Phase)</span>
-        <h2 class="slide-title">Tarea 1D: Plan de Trabajo para los Primeros 30 Días (Diagrama de Gantt)</h2>
+        <h2 class="slide-title">Tarea 1D: Plan de Trabajo de 30 Días (Onboarding)</h2>
       </div>
-      <span class="slide-badge">4 Semanas · 4 Entregables Verificables</span>
+      <!-- Botones Interruptores -->
+      <div class="gantt-toggle-bar">
+        <button id="btnGanttVisual" class="gantt-toggle-btn active" onclick="toggleGantt('visual')">📊 Línea de Tiempo Visual</button>
+        <button id="btnGanttTable" class="gantt-toggle-btn" onclick="toggleGantt('table')">📋 Matriz Detallada</button>
+      </div>
     </div>
 
     <div class="slide-body">
-      <table class="exec-table">
-        <thead>
-          <tr>
-            <th style="width:16%;">Fase / Prioridad</th>
-            <th style="width:30%;">Actividades Principales y Subactividades</th>
-            <th style="width:7%; text-align:center;">Sem 1</th>
-            <th style="width:7%; text-align:center;">Sem 2</th>
-            <th style="width:7%; text-align:center;">Sem 3</th>
-            <th style="width:7%; text-align:center;">Sem 4</th>
-            <th style="width:13%;">Actores Clave</th>
-            <th style="width:13%;">Producto Esperado</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Fase 1: Inmersión y Diagnóstico</strong><br><span class="pill pill-green">Prioridad Alta</span></td>
-            <td>
-              • <strong>1.1 Revisión información secundaria:</strong> documentos, reportes y bases heredadas (Kobo/Power BI).<br>
-              • <strong>1.2 Revisión del Modelo Lógico / ToC</strong> del PMS.<br>
-              • <strong>1.3 Reuniones de alineación</strong> estratégica e institucional.
-            </td>
-            <td style="text-align:center;"><div style="background:#003926; color:#FBBF24; border-radius:4px; padding:4px; font-weight:700;">██ ★</div></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>Impact Management (HQ Suiza), Dirección, Resp. Sistemas.</td>
-            <td><strong>Diagnóstico de Evaluabilidad</strong> y Mapeo de Brechas de Datos.</td>
-          </tr>
-          <tr>
-            <td><strong>Fase 2: Diseño Metodológico</strong><br><span class="pill pill-green">Prioridad Alta</span></td>
-            <td>
-              • <strong>2.1 Diseño iterativo</strong> de la propuesta metodológica mixta participativa.<br>
-              • <strong>2.2 Definición y cálculo de muestra</strong> estadística estratificada (95% NC).
-            </td>
-            <td></td>
-            <td style="text-align:center;"><div style="background:#003926; color:#FBBF24; border-radius:4px; padding:4px; font-weight:700;">██ ★</div></td>
-            <td></td>
-            <td></td>
-            <td>Dirección de Programa, Equipo HQ Suiza.</td>
-            <td><strong>Propuesta Metodológica</strong> y Diseño Muestral Aprobado.</td>
-          </tr>
-          <tr>
-            <td><strong>Fase 3: Herramientas y Logística</strong><br><span class="pill pill-leaf">Co-diseño</span></td>
-            <td>
-              • <strong>3.1 Co-diseño y validación</strong> de Matriz de Evaluación e instrumentos (XLSForms y Guías MSC).<br>
-              • <strong>3.2 Planificación logística</strong> territorial con las 7 unidades móviles.
-            </td>
-            <td></td>
-            <td></td>
-            <td style="text-align:center;"><div style="background:#2E7D32; color:#FBBF24; border-radius:4px; padding:4px; font-weight:700;">██ ★</div></td>
-            <td></td>
-            <td>4 Coordinadores PMS (PROMSA, Odontología, Educación, DESMA).</td>
-            <td><strong>Matriz e Instrumentos Validados</strong> + Plan Táctico de Campo.</td>
-          </tr>
-          <tr>
-            <td><strong>Fase 4: Pilotaje y Calibración</strong><br><span class="pill pill-amber">Terreno</span></td>
-            <td>
-              • <strong>4.1 Despliegue del primer pilotaje</strong> de herramientas en terreno.<br>
-              • <strong>4.2 Ajuste final de instrumentos</strong> y protocolos post-piloto.
-            </td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td style="text-align:center;"><div style="background:#D97706; color:#FFFFFF; border-radius:4px; padding:4px; font-weight:700;">██ ★</div></td>
-            <td>Equipo de Campo, 7 Unidades Móviles, Esp. MEAL.</td>
-            <td><strong>Kit Evaluativo Calibrado</strong> listo para despliegue masivo.</td>
-          </tr>
-        </tbody>
-      </table>
+      
+      <!-- VISTA 1: LÍNEA DE TIEMPO VISUAL (Por Defecto) -->
+      <div id="viewGanttVisual" class="gantt-view active">
+        <div class="callout" style="margin-bottom: 10px;">
+          <strong>Despliegue Acelerado:</strong> El diseño asegura que para la <strong>Semana 4</strong>, las 7 unidades móviles cuenten con un "Kit Evaluativo Calibrado" (KoboToolbox) y co-diseñado sin irrumpir su rutina médica.
+        </div>
+        
+        <div class="gantt-visual-grid">
+          <!-- Cabeceras -->
+          <div></div>
+          <div class="gantt-header-col">Semana 1</div>
+          <div class="gantt-header-col">Semana 2</div>
+          <div class="gantt-header-col">Semana 3</div>
+          <div class="gantt-header-col">Semana 4</div>
 
-      <div class="callout amber">
-        <strong>Hitos de Gobernanza (★):</strong> El plan evita recolectar datos precipitadamente sin antes auditar las bases existentes (Semana 1) y co-diseñar los instrumentos con los 4 coordinadores (Semana 3), garantizando apropiación operativa y cero fricción con las 7 unidades móviles.
+          <!-- Fila 1 -->
+          <div class="gantt-row-label">1. Inmersión y Diagnóstico</div>
+          <div class="gantt-track"><div class="gantt-bar bg-suyana" style="animation-delay: 0.1s;">Auditoría Bases Datos</div></div>
+          <div class="gantt-track"></div>
+          <div class="gantt-track"></div>
+          <div class="gantt-track"></div>
+
+          <!-- Fila 2 -->
+          <div class="gantt-row-label">2. Diseño Metodológico</div>
+          <div class="gantt-track"></div>
+          <div class="gantt-track"><div class="gantt-bar bg-suyana" style="animation-delay: 0.3s;">Diseño Muestral 95%</div></div>
+          <div class="gantt-track"></div>
+          <div class="gantt-track"></div>
+
+          <!-- Fila 3 -->
+          <div class="gantt-row-label">3. Co-diseño Herramientas</div>
+          <div class="gantt-track"></div>
+          <div class="gantt-track"></div>
+          <div class="gantt-track"><div class="gantt-bar bg-leaf" style="animation-delay: 0.5s;">XLSForm / KoboToolbox</div></div>
+          <div class="gantt-track"></div>
+
+          <!-- Fila 4 -->
+          <div class="gantt-row-label">4. Pilotaje en Terreno</div>
+          <div class="gantt-track"></div>
+          <div class="gantt-track"></div>
+          <div class="gantt-track"></div>
+          <div class="gantt-track"><div class="gantt-bar bg-amber" style="animation-delay: 0.7s;">Prueba 7 Unidades Móviles</div></div>
+        </div>
       </div>
+
+      <!-- VISTA 2: TABLA MATRIZ DETALLADA (Oculta por defecto) -->
+      <div id="viewGanttTable" class="gantt-view">
+        <table class="exec-table">
+          <thead>
+            <tr>
+              <th style="width:16%;">Fase / Prioridad</th>
+              <th style="width:30%;">Actividades Principales</th>
+              <th style="width:20%;">Actores Clave (RACI)</th>
+              <th style="width:20%;">Producto Esperado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Inmersión</strong><br><span class="pill pill-green">Semana 1</span></td>
+              <td>Revisión bases Kobo, Power BI histórico y reuniones estratégicas.</td>
+              <td>Impact Mgmt (Suiza), Dirección.</td>
+              <td>Diagnóstico Evaluabilidad.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Metodología</strong><br><span class="pill pill-green">Semana 2</span></td>
+              <td>Diseño de estrategia mixta y cálculo de muestra estratificada.</td>
+              <td>Dirección PMS.</td>
+              <td>Propuesta Aprobada.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Herramientas</strong><br><span class="pill pill-leaf">Semana 3</span></td>
+              <td>Programación XLSForm y guías para grupos focales.</td>
+              <td>4 Coordinadores PMS.</td>
+              <td>Matriz Validada.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Pilotaje</strong><br><span class="pill pill-amber">Semana 4</span></td>
+              <td>Despliegue piloto DQA en terreno y calibración.</td>
+              <td>Equipo 7 Unidades Móviles.</td>
+              <td>Kit Calibrado.</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="callout amber" style="margin-top:10px;">
+          <strong>Justificación:</strong> Se evita recolectar datos precipitadamente. Las semanas 1 y 2 son de blindaje técnico (auditoría) para asegurar cero fricción en terreno durante la semana 4.
+        </div>
+      </div>
+
     </div>
 
     <div class="slide-footer">
-      <span>Caso 1: Evaluación PMS 2024–2026 | Plan de Trabajo Primeros 30 Días</span>
+      <span>Caso 1: Evaluación PMS 2024–2026 | Plan de Trabajo 30 Días</span>
       <span>Diapositiva 5 de 10</span>
     </div>
   </section>
-
+  
   <!-- ==================== SLIDE 6: TAREA 2A (EVIDENCIA EXPANSIÓN EL ALTO) ==================== -->
   <section class="slide">
     <div class="slide-header">
@@ -792,200 +1527,236 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
   </section>
 
   <!-- ==================== SLIDE 7: TAREA 2B (DISEÑO PMS URBANO Y TEORÍA DE CAMBIO) ==================== -->
+ <!-- ==================== SLIDE 7: TAREA 2B (DISEÑO PMS URBANO Y TEORÍA DE CAMBIO) ==================== -->
   <section class="slide">
     <div class="slide-header">
       <div>
-        <span class="slide-kicker">Caso 2 · Rol de MEAL y Gestión del Conocimiento en el Diseño del Programa</span>
-        <h2 class="slide-title">Tarea 2B: Liderazgo Facilitador y Teoría de Cambio Adaptativa (Año 1 Piloto)</h2>
+        <span class="slide-kicker">Caso 2 · Rol de MEAL y Gestión del Conocimiento</span>
+        <h2 class="slide-title">Tarea 2B: Liderazgo Facilitador y Teoría de Cambio (Piloto)</h2>
       </div>
-      <span class="slide-badge">Co-creación + Evaluación Rápida</span>
+      <span class="slide-badge">D-4 El Alto · Enfoque Adaptativo</span>
     </div>
 
-    <div class="slide-body">
-      <!-- Momento 1: Liderazgo Facilitador -->
-      <div style="background:var(--bg-mint); border:1px solid var(--suyana-leaf); border-radius:8px; padding:10px 14px;">
-        <div style="font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:700; color:var(--suyana-green); margin-bottom:6px;">
-          MOMENTO 1: LIDERAZGO TÉCNICO FACILITADOR Y GESTIÓN DE LA EVIDENCIA (CO-CREACIÓN)
+    <div class="slide-body slide-7-layout">
+      
+      <!-- ================= MOMENTO 1 ================= -->
+      <div>
+        <div style="font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; color:var(--suyana-green); margin-bottom:6px;">
+          MOMENTO 1: LIDERAZGO TÉCNICO FACILITADOR (Fase de Preparación)
         </div>
-        <div class="grid-3" style="gap:10px;">
-          <div style="background:white; padding:7px 10px; border-radius:6px; font-size:0.73rem;">
-            <strong>1. Procesamiento Analítico:</strong> Síntesis temática y visualización de la evidencia de las 5 categorías (Tarea 2A) en insumos ejecutivos digeribles.
+        
+        <div class="m1-container">
+          <!-- Tarjeta 1 -->
+          <div class="m1-card">
+            <h4>📊 1. Procesamiento Analítico</h4>
+            <p>Síntesis temática de la evidencia demográfica, económica y de salud. Transformamos datos brutos en <strong>insumos ejecutivos</strong> para la toma de decisiones.</p>
           </div>
-          <div style="background:white; padding:7px 10px; border-radius:6px; font-size:0.73rem;">
-            <strong>2. Sensemaking Interno Suyana:</strong> Facilitación de talleres con Dirección, Coordinadores e Impact Management para alinear la visión antes de salir a terreno.
+          <!-- Tarjeta 2 -->
+          <div class="m1-card">
+            <h4>🧠 2. Sensemaking Interno</h4>
+            <p>Talleres de alineación con <strong>Dirección, Coordinadores e Impact Management</strong>. Unificamos la visión institucional antes de ir al terreno.</p>
           </div>
-          <div style="background:white; padding:7px 10px; border-radius:6px; font-size:0.73rem;">
-            <strong>3. Co-diseño Territorial:</strong> Mesas participativas con GAMEA, Red Los Andes, Directores UE y FEJUVE D-4 para validar pertinencia sin crear falsas expectativas.
+          <!-- Tarjeta 3 -->
+          <div class="m1-card">
+            <h4>🤝 3. Co-diseño Territorial</h4>
+            <p>Mesas participativas (<strong>GAMEA, Red Los Andes, FEJUVE</strong>). Validamos la viabilidad sin generar falsas expectativas en el D-4.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= MOMENTO 2 ================= -->
+      <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
+        <div style="font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; color:var(--suyana-green); margin-bottom:8px;">
+          MOMENTO 2: HOJA DE RUTA — TEORÍA DE CAMBIO CONDENSADA
+        </div>
+
+        <div class="toc-wrapper">
+          <div class="toc-meal-label">MONITOREO, EVALUACIÓN Y APRENDIZAJE (MEAL)</div>
+          
+          <div class="toc-chevrons">
+            
+            <!-- Supuestos (Puentes lógicos posicionados matemáticamente) -->
+            <div class="toc-assumptions-container">
+              <div class="toc-assumption assump-1">Supuesto: Rotación Autoridades</div>
+              <div class="toc-assumption assump-2">Supuesto: Paz Social Vecinal</div>
+              <div class="toc-assumption assump-3">Supuesto: Uso Agua Lluvia</div>
+            </div>
+
+            <!-- Caja Estrategia Transversal (Ahora integrada) -->
+            <div class="toc-challenge">
+              Estrategia<br>Transversal:<br><br>Microfocalización<br>Territorial D-4
+            </div>
+            
+            <!-- Insumos -->
+            <div class="toc-step">
+              <h5>📑 INSUMOS</h5>
+              <ul>
+                <li>Convenios SEDES / GAMEA / FEJUVE.</li>
+                <li>Unidades Móviles Suyana.</li>
+                <li>Becarios UMSA.</li>
+                <li>Guía AUP + Cosecha Lluvia.</li>
+              </ul>
+            </div>
+
+            <!-- Productos -->
+            <div class="toc-step">
+              <h5>🛠️ PRODUCTOS</h5>
+              <ul>
+                <li>Tamizaje y desparasitación intramuros.</li>
+                <li>Carpas solares (riego autónomo).</li>
+                <li>Fortalecimiento BTH (oficios).</li>
+                <li>Mesas de gestión barrial.</li>
+              </ul>
+            </div>
+
+            <!-- Resultados -->
+            <div class="toc-step">
+              <h5>🎯 RESULTADOS</h5>
+              <ul>
+                <li>Reducción parasitosis y malnutrición.</li>
+                <li>Seguridad alimentaria (autoconsumo).</li>
+                <li>Jóvenes en economía circular.</li>
+                <li>Freno a degradación local (Río Seke).</li>
+              </ul>
+            </div>
+
+            <!-- Impacto -->
+            <div class="toc-step">
+              <h5>🌱 IMPACTO</h5>
+              <ul>
+                <li><strong>Reducción de vulnerabilidad estructural.</strong></li>
+                <li><strong>Resiliencia climática.</strong></li>
+                <li><strong>Inserción económica efectiva (familias aymaras).</strong></li>
+              </ul>
+            </div>
+
           </div>
         </div>
       </div>
 
-      <!-- Momento 2: Ilustración Gráfica de la Teoría de Cambio -->
-      <div style="background:var(--bg-pearl); border:1px solid var(--border-silver); border-radius:8px; padding:10px 14px; flex:1; display:flex; flex-direction:column; justify-content:space-between;">
-        <div style="font-family:'Montserrat',sans-serif; font-size:0.78rem; font-weight:700; color:var(--suyana-green);">
-          MOMENTO 2: HOJA DE RUTA — TEORÍA DE CAMBIO ITERATIVA (BORRADOR CO-CREADO PARA EL PILOTO)
-        </div>
-
-        <div style="display:grid; grid-template-columns: 1fr 22px 1fr 22px 1fr 22px 1fr; align-items:stretch; gap:4px; margin: 6px 0;">
-          <!-- Insumos -->
-          <div style="background:white; border:1.5px solid var(--slate-dark); border-radius:6px; padding:8px; font-size:0.71rem;">
-            <div style="background:var(--slate-dark); color:white; font-family:'Montserrat',sans-serif; font-weight:700; padding:3px 6px; border-radius:4px; margin-bottom:5px; text-align:center;">1. INSUMOS (INPUTS)</div>
-            • Presupuesto Piloto Año 1 y Equipo Técnico Suyana.<br>
-            • Infraestructura: CS San Felipe de Seke y UE del polígono (2–3 sectores).<br>
-            • Convenios SEDES, GAMEA y <strong>Becarios UMSA/UACs</strong>.
-          </div>
-          <div style="display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--amber-meal); font-size:1.1rem;">➔</div>
-
-          <!-- Productos / Resultados -->
-          <div style="background:white; border:1.5px solid var(--suyana-leaf); border-radius:6px; padding:8px; font-size:0.71rem;">
-            <div style="background:var(--suyana-leaf); color:white; font-family:'Montserrat',sans-serif; font-weight:700; padding:3px 6px; border-radius:4px; margin-bottom:5px; text-align:center;">2. PRODUCTOS (OUTPUTS)</div>
-            • Tamizaje escolar (anemia/salud oral) sincronizado al SNIS.<br>
-            • Carpas solares comunitarias/escolares con cosecha de lluvia.<br>
-            • Talleres BTH (Electromecánica, Mercadotecnia y Reciclaje).
-          </div>
-          <div style="display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--amber-meal); font-size:1.1rem;">➔</div>
-
-          <!-- Efectos -->
-          <div style="background:white; border:1.5px solid var(--suyana-green); border-radius:6px; padding:8px; font-size:0.71rem;">
-            <div style="background:var(--suyana-green); color:white; font-family:'Montserrat',sans-serif; font-weight:700; padding:3px 6px; border-radius:4px; margin-bottom:5px; text-align:center;">3. EFECTOS (OUTCOMES)</div>
-            • Reducción de reinfección parasitaria y recuperación de anemia (&ge;15%).<br>
-            • Autoconsumo nutritivo (&ge;50%) + venta en EcoHuertas/Wali Sumita.<br>
-            • Jóvenes egresados BTH con empleabilidad/emprendimiento.
-          </div>
-          <div style="display:flex; align-items:center; justify-content:center; font-weight:800; color:var(--amber-meal); font-size:1.1rem;">➔</div>
-
-          <!-- Impacto -->
-          <div style="background:#FFFBEB; border:2px solid var(--amber-meal); border-radius:6px; padding:8px; font-size:0.71rem;">
-            <div style="background:var(--amber-meal); color:white; font-family:'Montserrat',sans-serif; font-weight:700; padding:3px 6px; border-radius:4px; margin-bottom:5px; text-align:center;">4. IMPACTO ESPERADO</div>
-            <strong>Población periurbana migrante de San Felipe de Seke (D-4) alcanza resiliencia social, económica, ambiental y de salud integral sostenible.</strong>
-          </div>
-        </div>
-
-        <div style="display:grid; grid-template-columns: 1.2fr 1fr; gap:10px; font-size:0.72rem;">
-          <div style="background:#FFFFFF; border-left:4px solid var(--suyana-green); padding:6px 10px; border-radius:4px;">
-            <strong>Supuestos Críticos a Monitorear:</strong> (1) Estabilidad de acuerdos con GAMEA/SEDES pese a rotación en Subalcaldía D-4; (2) Paz social con FEJUVE sobre predios comunales; (3) Uso exclusivo de agua segura/lluvia (prohibición de riego con aguas del río Seke).
-          </div>
-          <div style="background:#FEF3C7; border-left:4px solid var(--amber-meal); padding:6px 10px; border-radius:4px;">
-            <strong>Autoevaluación Fin Año 1 (Gate de Decisión):</strong> Contraste contra umbrales KPI (Índice AUP &ge;0,65; recuperación anemia &ge;15%) para calibrar, pivotar o escalar en los Años 2 y 3.
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="slide-footer">
-      <span>Caso 2: Expansión PMS Urbano (El Alto D-4) | Co-creación y Teoría de Cambio</span>
+      <span>Caso 2: Expansión PMS Urbano (El Alto D-4) | Teoría de Cambio y MEAL</span>
       <span>Diapositiva 7 de 10</span>
     </div>
   </section>
 
   <!-- ==================== SLIDE 8: TAREA 3A (MATRIZ RACI DQA) ==================== -->
+  <!-- ==================== SLIDE 8: TAREA 3A (MATRIZ RACI DQA) ==================== -->
   <section class="slide">
     <div class="slide-header">
       <div>
         <span class="slide-kicker">Caso 3 · Calidad de Datos (DQA) y Uso de la Evidencia Institucional</span>
-        <h2 class="slide-title">Tarea 3A: Gobernanza de Datos mediante Matriz RACI (Sin Sobrecarga Burocrática)</h2>
+        <h2 class="slide-title">Tarea 3A: Gobernanza de Datos mediante Matriz RACI (Filtros Activos)</h2>
       </div>
       <span class="slide-badge">Validez · Fiabilidad · Integridad · Precisión · Oportunidad</span>
     </div>
 
     <div class="slide-body">
-      <!-- Leyenda RACI -->
+      
+      <!-- Leyenda RACI Interactiva (Botones) -->
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+        <div style="font-size:0.75rem; font-weight:700; color:var(--slate-muted);">Filtre por rol haciendo clic en la leyenda:</div>
+        <button class="filter-btn active raci-legend-btn" onclick="filterRACI('ALL', this)">Mostrar Todos</button>
+      </div>
+
       <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px;">
-        <div style="background:var(--bg-pearl); border-left:4px solid var(--suyana-green); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
-          <span class="pill pill-green">R</span> <strong>Responsable (Responsible):</strong> Ejecuta operativamente la tarea.
+        <div class="raci-legend-btn" onclick="filterRACI('R', this)" style="background:var(--bg-pearl); border-left:4px solid var(--suyana-green); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
+          <span class="pill pill-green">R</span> <strong>Responsable:</strong> Ejecuta operativamente.
         </div>
-        <div style="background:var(--bg-pearl); border-left:4px solid var(--amber-meal); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
-          <span class="pill pill-amber">A</span> <strong>Aprobador (Accountable):</strong> Rinde cuentas y aprueba (único por fila).
+        <div class="raci-legend-btn" onclick="filterRACI('A', this)" style="background:var(--bg-pearl); border-left:4px solid var(--amber-meal); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
+          <span class="pill pill-amber">A</span> <strong>Aprobador:</strong> Rinde cuentas (único).
         </div>
-        <div style="background:var(--bg-pearl); border-left:4px solid var(--suyana-leaf); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
-          <span class="pill pill-leaf">C</span> <strong>Consultado (Consulted):</strong> Asesora técnicamente (vía bidireccional).
+        <div class="raci-legend-btn" onclick="filterRACI('C', this)" style="background:var(--bg-pearl); border-left:4px solid var(--suyana-leaf); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
+          <span class="pill pill-leaf">C</span> <strong>Consultado:</strong> Asesora técnicamente.
         </div>
-        <div style="background:var(--bg-pearl); border-left:4px solid var(--slate-dark); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
-          <span class="pill pill-slate">I</span> <strong>Informado (Informed):</strong> Recibe alertas/reportes (unidireccional).
+        <div class="raci-legend-btn" onclick="filterRACI('I', this)" style="background:var(--bg-pearl); border-left:4px solid var(--slate-dark); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
+          <span class="pill pill-slate">I</span> <strong>Informado:</strong> Recibe reportes.
         </div>
       </div>
 
-      <table class="exec-table">
+      <table class="exec-table" id="raciTable">
         <thead>
           <tr>
             <th style="width:28%;">Fase del Ciclo DQA / Tarea</th>
-            <th style="width:12%; text-align:center;">Equipo de Campo</th>
-            <th style="width:12%; text-align:center;">Coordinadores Programa</th>
-            <th style="width:16%; text-align:center; background:#D97706;">★ Especialista MEAL (Foco)</th>
-            <th style="width:12%; text-align:center;">Responsable Sistemas</th>
-            <th style="width:10%; text-align:center;">Impact Mgmt (HQ)</th>
-            <th style="width:10%; text-align:center;">Dirección Programa</th>
+            <th style="width:12%; text-align:center;">Equipo Campo</th>
+            <th style="width:12%; text-align:center;">Coordinadores</th>
+            <th style="width:16%; text-align:center; background:#D97706;">★ Especialista MEAL</th>
+            <th style="width:12%; text-align:center;">Resp. Sistemas</th>
+            <th style="width:10%; text-align:center;">Impact Mgmt</th>
+            <th style="width:10%; text-align:center;">Dirección</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><strong>1. Prevenir el error</strong> (en origen vía diseño XLSForm y en registro de campo)</td>
-            <td style="text-align:center;"><span class="pill pill-green">R</span> (Captura)</td>
-            <td style="text-align:center;"><span class="pill pill-amber">A</span></td>
-            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-leaf">C</span> (Diseña reglas)</td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td><strong>1. Prevenir el error</strong> (XLSForm y registro)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-green">R</span> (Captura)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-amber">A</span></td>
+            <td class="raci-cell" style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-leaf">C</span> (Diseña)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
           </tr>
           <tr>
-            <td><strong>2. Identificar el error</strong> (mediante rutinas automatizadas de validación DQA)</td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Audita)</td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td><strong>2. Identificar el error</strong> (rutinas ETL DQA)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Audita)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
           </tr>
           <tr>
-            <td><strong>3. Comunicar el error</strong> (alertas focalizadas y tableros de seguimiento)</td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Reporta)</td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td><strong>3. Comunicar el error</strong> (alertas focalizadas)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Reporta)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
           </tr>
           <tr>
-            <td><strong>4. Corregir el error</strong> (en fuente primaria o vía limpieza automatizada ETL)</td>
-            <td style="text-align:center;"><span class="pill pill-green">R</span> (Dato campo)</td>
-            <td style="text-align:center;"><span class="pill pill-amber">A</span></td>
-            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> (Vía ETL) / <span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td><strong>4. Corregir el error</strong> (limpieza primaria/ETL)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-green">R</span> (Dato)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-amber">A</span></td>
+            <td class="raci-cell" style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> (ETL) / <span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
           </tr>
           <tr>
-            <td><strong>5. Verificar la corrección</strong> (validación de integridad antes de pasar a Power BI)</td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Valida SSOT)</td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td><strong>5. Verificar corrección</strong> (validación SSOT)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Valida)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
           </tr>
           <tr>
-            <td><strong>6. Analizar errores recurrentes</strong> (diagnóstico de causa raíz humana vs. sistema)</td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Lidera análisis)</td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td><strong>6. Analizar recurrencia</strong> (humana vs sistema)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> / <span class="pill pill-amber">A</span> (Lidera)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
           </tr>
           <tr>
-            <td><strong>7. Decidir cuándo escalar un problema</strong> (fallas estructurales o incumplimiento grave)</td>
-            <td style="text-align:center;"><span class="pill pill-slate">I</span></td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> (Propone escalar)</td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center;"><span class="pill pill-leaf">C</span></td>
-            <td style="text-align:center;"><span class="pill pill-amber">A</span> (Decide)</td>
+            <td><strong>7. Escalar un problema</strong> (falla estructural)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-slate">I</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center; background:#FFFBEB;"><span class="pill pill-green">R</span> (Propone)</td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-leaf">C</span></td>
+            <td class="raci-cell" style="text-align:center;"><span class="pill pill-amber">A</span> (Decide)</td>
           </tr>
         </tbody>
       </table>
 
-      <div class="callout">
-        <strong>Principio de Gobernanza MEAL:</strong> El Especialista MEAL actúa como <strong>arquitecto y garante de calidad</strong> (automatiza la detección y validación), liberando a los Coordinadores y Equipos de Campo de revisiones manuales burocráticas en hojas de cálculo.
+      <div class="callout" style="margin-top:6px;">
+        <strong>Principio de Gobernanza MEAL:</strong> El Especialista actúa como <strong>arquitecto garante</strong> (automatiza la detección), liberando a los Equipos de Campo de revisiones burocráticas en hojas de cálculo.
       </div>
     </div>
 
@@ -996,54 +1767,92 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
   </section>
 
   <!-- ==================== SLIDE 9: TAREA 3B (ESTRATEGIA INTEGRAL 3 DIMENSIONES) ==================== -->
+  <!-- ==================== SLIDE 9: TAREA 3B (ESTRATEGIA INTEGRAL 3 DIMENSIONES) ==================== -->
   <section class="slide">
     <div class="slide-header">
       <div>
-        <span class="slide-kicker">Caso 3 · Solución a la Persistencia de Errores (40% sin cerrar a los 2 meses)</span>
-        <h2 class="slide-title">Tarea 3B: Estrategia de Mitigación en 3 Dimensiones (Cero Carga Administrativa)</h2>
+        <span class="slide-kicker">Caso 3 · Solución a la Persistencia de Errores (40% Abiertos)</span>
+        <h2 class="slide-title">Tarea 3B: Estrategia de Mitigación en 3 Dimensiones (Cero Carga)</h2>
       </div>
-      <span class="slide-badge">100 Errores Resueltos desde la Raíz</span>
+      <span class="slide-badge">100 Errores Resueltos de Raíz</span>
     </div>
 
-    <div class="slide-body">
-      <div class="callout amber">
-        <strong>Diagnóstico de Causa Raíz:</strong> El proceso actual fracasa porque intenta corregir <em>después</em> de la captura mediante reportes administrativos manuales. La solución traslada el control al <strong>formulario KoboToolbox</strong> y al <strong>pipeline ETL</strong>, reduciendo en &gt;85% los errores antes de que existan.
+    <div class="slide-body" style="display:flex; flex-direction:column; height:100%;">
+      
+      <div class="callout amber" style="margin-bottom:0;">
+        <strong>Diagnóstico de Causa Raíz:</strong> El proceso actual fracasa porque intenta corregir <em>después</em> de la captura mediante reportes burocráticos. La solución traslada el control duro al <strong>XLSForm</strong> y al <strong>ETL</strong>, eliminando &gt;85% de los errores antes de que lleguen a la base de datos.
       </div>
 
-      <div class="grid-3" style="flex:1;">
-        <!-- Dimensión 1: Formulario XLSForm -->
-        <div class="card" style="border-top-width:5px;">
-          <h3>1. Prevención en Origen (XLSForm) <span class="pill pill-green">58% de Errores</span></h3>
-          <p style="color:var(--suyana-green); font-weight:600;">Bloqueo preventivo en KoboToolbox durante el llenado (0% retrabajo posterior):</p>
-          <ul>
-            <li><strong>Campo obligatorio vacío (24 casos · Recurrente):</strong> Configurar columna <code>required = yes</code>. El formulario impide avanzar sin respuesta.</li>
-            <li><strong>Fecha nacimiento &gt; encuesta (18 casos · Recurrente):</strong> Regla lógica <code>constraint: . &lt;= today()</code> con mensaje de alerta inmediato.</li>
-            <li><strong>Comunidad ≠ Municipio (11 casos · Recurrente):</strong> Menú en cascada (<code>choice_filter</code> por municipio) para mostrar solo comunidades válidas.</li>
-            <li><strong>Año intervención incorrecto (5 casos · Ocasional):</strong> Captura automática vía metadatos (<code>today</code>) o valor por defecto bloqueado (<code>read_only = yes</code>).</li>
-          </ul>
+      <!-- ACORDEÓN DINÁMICO -->
+      <div class="accordion-container">
+        
+        <!-- Dimensión 1: Formulario -->
+        <div class="accordion-item">
+          <img src="img/1.jpeg" alt="Técnico KoboToolbox" class="acc-bg-image">
+          
+          <div class="acc-details">
+            <h4>Bloqueo Preventivo (KoboToolbox XLSForm)</h4>
+            <ul>
+              <li><strong>Vacíos (24 casos):</strong> Restricción <code>required = yes</code>. El formulario impide avanzar.</li>
+              <li><strong>Fechas de Nacimiento (18 casos):</strong> Validar que no sea fecha futura usando <code>constraint: . &lt;= today()</code> + <code>constraint_message</code>.</li>
+              <li><strong>Comunidad Equivocada (11 casos):</strong> Uso de <code>choice_filter</code> (Menú en Cascada) atado a la selección del municipio.</li>
+              <li><strong>Año Intervención (5 casos):</strong> Metadatos ocultos. Campo <code>read_only = yes</code> alimentado por <code>today()</code>.</li>
+            </ul>
+            <div style="margin-top:10px; font-weight:700; color:var(--suyana-leaf); font-size:0.75rem;">
+              ➔ Impacto: Mitiga el 58% de errores en tiempo real. 0% retrabajo.
+            </div>
+          </div>
+
+          <div class="acc-header">
+            <div class="acc-number">1</div>
+            <div class="acc-title">Prevención en Origen</div>
+          </div>
         </div>
 
         <!-- Dimensión 2: Pipeline ETL -->
-        <div class="card leaf-top" style="border-top-width:5px;">
-          <h3>2. Limpieza Automatizada (ETL) <span class="pill pill-leaf">Datos Limpios</span></h3>
-          <p style="color:var(--suyana-leaf); font-weight:600;">Automatización vía Python / Power Query conectada por API a KoboToolbox:</p>
-          <ul>
-            <li><strong>Código encuestador ≠ equipo asignado (7 casos · Ocasional):</strong> Tabla maestra relacional en el ETL que cruza el <code>username</code> / ID del dispositivo y corrige automáticamente la asignación de equipo.</li>
-            <li><strong>Detección automática de duplicados exactos:</strong> Script de deduplicación basado en llave compuesta (<code>ID_Beneficiario + Fecha + Subprograma</code>) antes de publicar en el modelo semántico de <strong>Power BI (SSOT)</strong>.</li>
-            <li><strong>Impacto:</strong> Elimina el envío de listas de Excel para corrección manual por parte de los coordinadores.</li>
-          </ul>
+        <div class="accordion-item">
+          <img src="img/2.jpeg" alt="Análisis ETL" class="acc-bg-image">
+          
+          <div class="acc-details" style="border-left-color:var(--amber-meal);">
+            <h4 style="color:var(--amber-meal);">Limpieza Automatizada (Python/Power Query)</h4>
+            <ul>
+              <li><strong>Código Encuestador Erróneo (7 casos):</strong> El script cruza el <code>username</code> de Kobo contra la tabla maestra de RRHH y corrige la asignación de equipo automáticamente.</li>
+              <li><strong>Duplicación por Sincronización:</strong> Algoritmo de descarte usando llave compuesta: <span class="code-snippet">ID_Beneficiario + Fecha + Subprograma</span>.</li>
+              <li><strong>Validación Estructural:</strong> Identifica outliers estadísticos antes de publicarlos en el <strong>Single Source of Truth (SSOT)</strong> de Power BI.</li>
+            </ul>
+            <div style="margin-top:10px; font-weight:700; color:var(--suyana-leaf); font-size:0.75rem;">
+              ➔ Impacto: Elimina los Excel manuales de revisión para Coordinadores.
+            </div>
+          </div>
+
+          <div class="acc-header">
+            <div class="acc-number" style="background:var(--suyana-leaf);">2</div>
+            <div class="acc-title">Pipeline ETL</div>
+          </div>
         </div>
 
         <!-- Dimensión 3: Micro-espacios -->
-        <div class="card amber-top" style="border-top-width:5px;">
-          <h3>3. Micro-Espacios de Facilitación <span class="pill pill-amber">35 Duplicados</span></h3>
-          <p style="color:#B45309; font-weight:600;">Gestión del cambio empática y focalizada para "Registros Duplicados" (35 casos):</p>
-          <ul>
-            <li><strong>Investigación empática:</strong> Los duplicados suelen ocurrir por incertidumbre en el envío offline o doble pulsación al sincronizar en zonas sin señal.</li>
-            <li><strong>Acción sin saturar al equipo:</strong> En lugar de talleres masivos repetitivos, realizar <strong>micro-sesiones 1 a 1 (10–15 min)</strong> en terreno solo con los encuestadores que presentan recurrencia.</li>
-            <li><strong>Cierre del 40% pendiente:</strong> Amnistía técnica mediante limpieza asistida por MEAL + Sistemas para sanear el pasivo histórico y arrancar con el XLSForm blindado.</li>
-          </ul>
+        <div class="accordion-item">
+          <img src="img/3.jpeg" alt="Interacción Campo" class="acc-bg-image">
+          
+          <div class="acc-details" style="border-left-color:var(--slate-dark);">
+            <h4 style="color:var(--slate-dark);">Gestión del Cambio Focalizada</h4>
+            <ul>
+              <li><strong>Empatía Tecnológica:</strong> Los duplicados recurrentes (35 casos) suelen nacer de inseguridad al subir datos offline (pulsar "enviar" múltiples veces).</li>
+              <li><strong>Acción Quirúrgica:</strong> Nada de "talleres aburridos generales". Sesiones de acompañamiento de <strong>10 minutos, 1 a 1 en terreno</strong>, solo con los usuarios que presentan la falla en el dashboard DQA.</li>
+              <li><strong>Amnistía Histórica:</strong> Limpieza del 40% pendiente por parte de Sistemas/MEAL para arrancar en "Cero" con los nuevos XLSForms.</li>
+            </ul>
+            <div style="margin-top:10px; font-weight:700; color:var(--suyana-leaf); font-size:0.75rem;">
+              ➔ Impacto: Cierra la brecha del pasivo histórico.
+            </div>
+          </div>
+
+          <div class="acc-header">
+            <div class="acc-number" style="background:var(--slate-dark);">3</div>
+            <div class="acc-title">Micro-Facilitación</div>
+          </div>
         </div>
+
       </div>
     </div>
 
@@ -1154,7 +1963,65 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       nonPriorityRows.forEach(r => r.style.opacity = '1');
     }
   }
+
+  // ==================== NUEVA FUNCIÓN PARA EL GANTT (SLIDE 5) ====================
+  function toggleGantt(viewMode) {
+    // Apagar botones
+    document.getElementById('btnGanttVisual').classList.remove('active');
+    document.getElementById('btnGanttTable').classList.remove('active');
+    // Apagar vistas
+    document.getElementById('viewGanttVisual').classList.remove('active');
+    document.getElementById('viewGanttTable').classList.remove('active');
+    
+    // Encender la selección
+    if(viewMode === 'visual') {
+      document.getElementById('btnGanttVisual').classList.add('active');
+      document.getElementById('viewGanttVisual').classList.add('active');
+    } else {
+      document.getElementById('btnGanttTable').classList.add('active');
+      document.getElementById('viewGanttTable').classList.add('active');
+    }
+  }
+// ==================== FILTRO DE MATRIZ RACI (SLIDE 8) ====================
+  function filterRACI(role, btnElement) {
+    // Quitar la clase 'active' de todos los botones de la leyenda
+    document.querySelectorAll('.raci-legend-btn').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    // Activar solo el botón presionado
+    if (btnElement) btnElement.classList.add('active');
+
+    // Seleccionar todas las filas del cuerpo de la tabla RACI
+    const rows = document.querySelectorAll('#raciTable tbody tr');
+    
+    rows.forEach(row => {
+      const cells = row.querySelectorAll('td');
+      // Ignoramos la celda [0] porque es el texto de la tarea, iteramos el resto
+      for (let i = 1; i < cells.length; i++) {
+        const cell = cells[i];
+        
+        if (role === 'ALL') {
+          // Si es Mostrar Todos, quitar la opacidad de todo
+          cell.classList.remove('raci-dimmed');
+        } else {
+          // Extraemos todas las pastillas (pills) dentro de esta celda
+          const pills = cell.querySelectorAll('.pill');
+          let hasRole = false;
+          
+          pills.forEach(p => {
+            if (p.textContent.trim() === role) hasRole = true;
+          });
+
+          // Opacamos o resaltamos dependiendo de si tiene el rol
+          if (hasRole) {
+            cell.classList.remove('raci-dimmed');
+          } else {
+            cell.classList.add('raci-dimmed');
+          }
+        }
+      }
+    });
+  }  
 </script>
 </body>
 </html>
-Mostrando Presentacion_Ejecutiva_MEAL_Suyana.html
