@@ -1,6 +1,3 @@
-
-Presentacion_Ejecutiva_MEAL_Suyana.html
-100%
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -24,11 +21,7 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     --white: #FFFFFF;
   }
 
-  * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: 'Inter', Arial, sans-serif;
@@ -70,9 +63,7 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     animation: fadeIn 0.28s ease-out;
   }
 
-  .slide.active {
-    display: flex;
-  }
+  .slide.active { display: flex; }
 
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(4px); }
@@ -132,9 +123,7 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
 
   .slide-footer {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 0; left: 0; right: 0;
     height: 36px;
     background: var(--bg-pearl);
     border-top: 1px solid var(--border-silver);
@@ -146,7 +135,7 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     color: var(--slate-muted);
   }
 
-  /* Callout Boxes (Regla 60-30-10) */
+  /* Callout Boxes */
   .callout {
     background: var(--bg-pearl);
     border: 1px solid #E2E8F0;
@@ -156,19 +145,9 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     font-size: 0.8rem;
     line-height: 1.35;
   }
-
-  .callout.amber {
-    border-left-color: var(--amber-meal);
-    background: #FFFBEB;
-  }
-
-  .callout strong {
-    color: var(--suyana-green);
-  }
-
-  .callout.amber strong {
-    color: #B45309;
-  }
+  .callout.amber { border-left-color: var(--amber-meal); background: #FFFBEB; }
+  .callout strong { color: var(--suyana-green); }
+  .callout.amber strong { color: #B45309; }
 
   /* Tablas de Alta Densidad */
   table.exec-table {
@@ -177,7 +156,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     font-size: 0.75rem;
     line-height: 1.28;
   }
-
   table.exec-table th {
     background: var(--suyana-green);
     color: var(--white);
@@ -188,21 +166,13 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     font-size: 0.73rem;
     letter-spacing: 0.3px;
   }
-
   table.exec-table td {
     padding: 7px 10px;
     border-bottom: 1px solid var(--border-silver);
     vertical-align: middle;
   }
-
-  table.exec-table tr:nth-child(even) td {
-    background: var(--bg-pearl);
-  }
-
-  table.exec-table tr.priority-row td {
-    background: #FEF9C3 !important;
-    border-bottom: 1.5px solid var(--amber-meal);
-  }
+  table.exec-table tr:nth-child(even) td { background: var(--bg-pearl); }
+  table.exec-table tr.priority-row td { background: #FEF9C3 !important; border-bottom: 1.5px solid var(--amber-meal); }
 
   /* Badges y Píldoras */
   .pill {
@@ -233,10 +203,8 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     flex-direction: column;
     gap: 6px;
   }
-
   .card.amber-top { border-top-color: var(--amber-meal); }
   .card.leaf-top { border-top-color: var(--suyana-leaf); }
-
   .card h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.85rem;
@@ -245,16 +213,10 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     align-items: center;
     justify-content: space-between;
   }
-
-  .card p, .card li {
-    font-size: 0.74rem;
-    line-height: 1.32;
-    color: var(--slate-dark);
-  }
-
+  .card p, .card li { font-size: 0.74rem; line-height: 1.32; color: var(--slate-dark); }
   .card ul { padding-left: 15px; }
 
-  /* Controles de Navegación Flotantes */
+  /* Controles de Navegación */
   .nav-bar {
     margin-top: 10px;
     display: flex;
@@ -266,7 +228,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     color: white;
     font-size: 0.8rem;
   }
-
   .nav-btn {
     background: var(--suyana-green);
     color: white;
@@ -278,15 +239,10 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     font-size: 0.75rem;
     transition: all 0.2s;
   }
-
   .nav-btn:hover { background: var(--amber-meal); border-color: var(--amber-meal); }
 
-  /* Botones interactivos internos */
-  .filter-bar {
-    display: flex;
-    gap: 8px;
-    margin-bottom: 4px;
-  }
+  /* Botones internos */
+  .filter-bar { display: flex; gap: 8px; margin-bottom: 4px; }
   .filter-btn {
     padding: 4px 10px;
     font-size: 0.7rem;
@@ -298,62 +254,13 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     border-radius: 14px;
     cursor: pointer;
   }
-  .filter-btn.active {
-    background: var(--suyana-green);
-    color: white;
-  }
+  .filter-btn.active { background: var(--suyana-green); color: white; }
 
-  /* Impresión a PDF exacta en 16:9 */
-  @media print {
-    @page {
-      size: landscape;
-      margin: 0;
-    }
-    html, body { 
-      background: white !important; 
-      display: block !important; 
-      height: auto !important; 
-      overflow: visible !important; 
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-    .deck-viewport { 
-      display: block !important; 
-      width: 100% !important; 
-      height: auto !important; 
-      max-width: none !important; 
-      max-height: none !important; 
-      box-shadow: none !important; 
-      overflow: visible !important; 
-      background: transparent !important;
-      margin: 0 !important;
-      padding: 0 !important;
-    }
-    .slide { 
-      display: flex !important; 
-      opacity: 1 !important; 
-      visibility: visible !important;
-      page-break-after: always !important; 
-      page-break-inside: avoid !important;
-      break-after: page !important;
-      height: 100vh !important; 
-      max-height: 100vh !important;
-      width: 100vw !important; 
-      position: relative !important; 
-      overflow: hidden !important; /* Corta cualquier milímetro sobrante que cause el salto a 2 páginas */
-      animation: none !important; /* APAGA LAS ANIMACIONES EN EL PDF PARA EVITAR PÁGINAS BLANCAS */
-      transition: none !important;
-      transform: none !important;
-      margin: 0 !important;
-    }
-    .nav-bar { display: none !important; }
-  }
-/* ==================== CÍRCULO VIRTUOSO CSS ==================== */
- /* ==================== CÍRCULO VIRTUOSO CSS (ANIMADO) ==================== */
+  /* ==================== CÍRCULO VIRTUOSO CSS (ANIMADO) SLIDE 2 ==================== */
   .virtuous-diagram {
     display: grid;
     grid-template-columns: 1fr 140px 1fr;
-    grid-template-rows: 1fr 140px 1fr auto; /* Fila extra para los Criterios OCDE */
+    grid-template-rows: 1fr 140px 1fr auto;
     gap: 10px;
     align-items: center;
     justify-items: center;
@@ -365,668 +272,161 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     position: relative;
     overflow: hidden;
   }
-
-  /* Animación Continua del Circuito */
   @keyframes spinTrack { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
-  
   .vd-track {
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    border: 2px dashed var(--border-silver);
-    border-radius: 50%;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(0deg);
-    z-index: 1;
-    animation: spinTrack 30s linear infinite; /* Movimiento perpetuo suave */
+    position: absolute; width: 250px; height: 250px; border: 2px dashed var(--border-silver);
+    border-radius: 50%; top: 45%; left: 50%; transform: translate(-50%, -50%) rotate(0deg);
+    z-index: 1; animation: spinTrack 30s linear infinite;
   }
-
-  /* Núcleo Central con Efecto Hover (Resalte) */
   .vd-core {
-    grid-column: 2;
-    grid-row: 2;
-    background: var(--suyana-green);
-    color: white;
-    border-radius: 50%;
-    width: 130px;
-    height: 130px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    box-shadow: 0 8px 16px rgba(0,57,38,0.25);
-    border: 4px solid var(--bg-mint);
-    z-index: 2;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
+    grid-column: 2; grid-row: 2; background: var(--suyana-green); color: white;
+    border-radius: 50%; width: 130px; height: 130px; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+    box-shadow: 0 8px 16px rgba(0,57,38,0.25); border: 4px solid var(--bg-mint);
+    z-index: 2; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer;
   }
-  .vd-core:hover {
-    transform: scale(1.12); /* Aumenta de tamaño al pasar el mouse */
-    box-shadow: 0 15px 25px rgba(0, 57, 38, 0.5);
-    background: #002216;
-    border-color: var(--amber-light);
-  }
+  .vd-core:hover { transform: scale(1.12); box-shadow: 0 15px 25px rgba(0, 57, 38, 0.5); background: #002216; border-color: var(--amber-light); }
   .vd-core strong { font-family: 'Montserrat', sans-serif; font-size: 0.85rem; line-height: 1.1; }
   .vd-core span { font-size: 0.65rem; color: var(--amber-light); margin-top: 4px; transition: color 0.3s; }
-
-  /* Nodos Periféricos con Efecto Hover */
   .vd-node {
-    background: white;
-    border-radius: 8px;
-    padding: 10px 12px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.06);
-    border-top: 4px solid var(--suyana-leaf);
-    width: 100%;
-    max-width: 170px;
-    z-index: 2;
-    transition: all 0.3s ease;
-    cursor: pointer;
+    background: white; border-radius: 8px; padding: 10px 12px; text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.06); border-top: 4px solid var(--suyana-leaf);
+    width: 100%; max-width: 170px; z-index: 2; transition: all 0.3s ease; cursor: pointer;
   }
-  .vd-node:hover {
-    transform: translateY(-6px) scale(1.04); /* Salta ligeramente hacia el usuario */
-    box-shadow: 0 12px 20px rgba(0,0,0,0.15);
-    border-top-width: 6px;
-  }
+  .vd-node:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 12px 20px rgba(0,0,0,0.15); border-top-width: 6px; }
   .vd-node h4 { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: var(--slate-dark); margin-bottom: 4px; }
   .vd-node p { font-size: 0.65rem; color: var(--slate-muted); line-height: 1.3; }
-
-  /* Posiciones de la grilla */
   .vd-node-1 { grid-column: 2; grid-row: 1; border-top-color: var(--slate-muted); }
   .vd-node-2 { grid-column: 3; grid-row: 2; border-top-color: var(--amber-meal); }
   .vd-node-3 { grid-column: 2; grid-row: 3; border-top-color: var(--suyana-leaf); }
   .vd-node-4 { grid-column: 1; grid-row: 2; border-top-color: var(--amber-meal); }
-
-  /* Flechas indicadoras */
   .vd-arrow { font-size: 1.2rem; color: var(--amber-meal); z-index: 2; font-weight: bold; opacity: 0.8; transition: opacity 0.3s; }
   .arrow-top { grid-column: 2; grid-row: 1 / span 2; align-self: end; margin-bottom: 12px; }
   .arrow-right { grid-column: 2 / span 2; grid-row: 2; justify-self: start; margin-left: 12px; transform: rotate(90deg); }
   .arrow-bottom { grid-column: 2; grid-row: 2 / span 2; align-self: start; margin-top: 12px; transform: rotate(180deg); }
   .arrow-left { grid-column: 1 / span 2; grid-row: 2; justify-self: end; margin-right: 12px; transform: rotate(-90deg); }
-
-  /* Base Criterios OCDE-CAD */
   .ocde-criteria-bar {
-    grid-column: 1 / -1;
-    grid-row: 4;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 15px;
-    padding-top: 10px;
-    border-top: 1px dashed var(--border-silver);
-    width: 100%;
+    grid-column: 1 / -1; grid-row: 4; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+    margin-top: 15px; padding-top: 10px; border-top: 1px dashed var(--border-silver); width: 100%;
   }
   .ocde-tag {
-    font-size: 0.62rem;
-    font-family: 'Montserrat', sans-serif;
-    background: rgba(100, 116, 139, 0.08);
-    color: var(--slate-dark);
-    padding: 4px 10px;
-    border-radius: 12px;
-    border: 1px solid var(--border-silver);
-    font-weight: 700;
-    transition: all 0.25s ease;
-    cursor: default;
+    font-size: 0.62rem; font-family: 'Montserrat', sans-serif; background: rgba(100, 116, 139, 0.08);
+    color: var(--slate-dark); padding: 4px 10px; border-radius: 12px; border: 1px solid var(--border-silver);
+    font-weight: 700; transition: all 0.25s ease; cursor: default;
   }
-  .ocde-tag:hover {
-    background: var(--amber-meal);
-    color: white;
-    border-color: var(--amber-meal);
-    transform: translateY(-2px);
-  }
-/* ==================== SLIDE 4: SPLIT LAYOUT & STEPPER ==================== */
+  .ocde-tag:hover { background: var(--amber-meal); color: white; border-color: var(--amber-meal); transform: translateY(-2px); }
+
+  /* ==================== SLIDE 4: SPLIT LAYOUT & STEPPER ==================== */
   .split-layout {
-    display: grid;
-    grid-template-columns: 45% 55%;
-    height: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid var(--border-silver);
-    background: var(--white);
+    display: grid; grid-template-columns: 45% 55%; height: 100%; border-radius: 12px;
+    overflow: hidden; border: 1px solid var(--border-silver); background: var(--white);
     box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   }
-
-  .split-image-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background: var(--slate-dark);
-  }
-
-  .split-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.9;
-    transition: transform 6s ease;
-  }
-  
-  .slide.active .split-image {
-    transform: scale(1.08); /* Efecto zoom lento al entrar a la diapo */
-  }
-
+  .split-image-container { position: relative; width: 100%; height: 100%; overflow: hidden; background: var(--slate-dark); }
+  .split-image { width: 100%; height: 100%; object-fit: cover; opacity: 0.9; transition: transform 6s ease; }
+  .slide.active .split-image { transform: scale(1.08); }
   .image-overlay-card {
-    position: absolute;
-    top: 50%; /* Lo baja a la mitad exacta de la imagen */
-    transform: translateY(-50%); /* Lo centra perfectamente en su propio eje */
-    left: 20px;
-    right: 20px;
-    background: rgba(0, 34, 22, 0.85);
-    backdrop-filter: blur(4px);
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 4px solid var(--amber-meal);
-    color: white;
+    position: absolute; top: 50%; transform: translateY(-50%); left: 20px; right: 20px;
+    background: rgba(0, 34, 22, 0.85); backdrop-filter: blur(4px); padding: 15px;
+    border-radius: 8px; border-left: 4px solid var(--amber-meal); color: white;
   }
-
-  .split-content {
-    padding: 20px 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  /* Stepper de Riesgos (Línea de progresión) */
-  .risk-stepper {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    position: relative;
-  }
-
+  .split-content { padding: 20px 30px; display: flex; flex-direction: column; justify-content: center; }
+  .risk-stepper { display: flex; flex-direction: column; gap: 12px; position: relative; }
   .risk-stepper::before {
-    content: '';
-    position: absolute;
-    left: 14px;
-    top: 10px;
-    bottom: 10px;
-    width: 2px;
-    background: var(--border-silver);
-    z-index: 1;
+    content: ''; position: absolute; left: 14px; top: 10px; bottom: 10px; width: 2px; background: var(--border-silver); z-index: 1;
   }
-
-  .step-item {
-    display: flex;
-    gap: 16px;
-    position: relative;
-    z-index: 2;
-    align-items: flex-start;
-    transition: transform 0.2s ease;
-  }
-  
-  .step-item:hover {
-    transform: translateX(5px);
-  }
-
+  .step-item { display: flex; gap: 16px; position: relative; z-index: 2; align-items: flex-start; transition: transform 0.2s ease; }
+  .step-item:hover { transform: translateX(5px); }
   .step-marker {
-    min-width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    color: white;
-    background: var(--suyana-green);
+    min-width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: white; background: var(--suyana-green);
     box-shadow: 0 0 0 4px var(--white);
   }
-
   .step-marker.critical { background: #DC2626; }
   .step-marker.amber { background: var(--amber-meal); }
+  .step-text { background: var(--bg-pearl); padding: 10px 14px; border-radius: 6px; border: 1px solid var(--border-silver); width: 100%; }
+  .step-text h4 { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; color: var(--slate-dark); margin-bottom: 3px; }
+  .step-text p { font-size: 0.7rem; color: var(--suyana-leaf); font-weight: 600; line-height: 1.3; }
 
-  .step-text {
-    background: var(--bg-pearl);
-    padding: 10px 14px;
-    border-radius: 6px;
-    border: 1px solid var(--border-silver);
-    width: 100%;
-  }
-
-  .step-text h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    color: var(--slate-dark);
-    margin-bottom: 3px;
-  }
-
-  .step-text p {
-    font-size: 0.7rem;
-    color: var(--suyana-leaf);
-    font-weight: 600;
-    line-height: 1.3;
-  }
-/* ==================== SLIDE 5: GANTT INTERACTIVO ==================== */
-  .gantt-toggle-bar {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 10px;
-    justify-content: center;
-  }
+  /* ==================== SLIDE 5: GANTT INTERACTIVO ==================== */
+  .gantt-toggle-bar { display: flex; gap: 12px; margin-bottom: 10px; justify-content: center; }
   .gantt-toggle-btn {
-    padding: 6px 18px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    font-weight: 700;
-    border: 1px solid var(--suyana-green);
-    background: white;
-    color: var(--suyana-green);
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s;
+    padding: 6px 18px; font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700;
+    border: 1px solid var(--suyana-green); background: white; color: var(--suyana-green);
+    border-radius: 20px; cursor: pointer; transition: all 0.3s;
   }
-  .gantt-toggle-btn.active {
-    background: var(--suyana-green);
-    color: white;
-    box-shadow: 0 4px 10px rgba(0,57,38,0.25);
-  }
-  
-  .gantt-view {
-    display: none;
-    animation: fadeIn 0.4s ease;
-    height: 100%;
-    flex-direction: column;
-  }
+  .gantt-toggle-btn.active { background: var(--suyana-green); color: white; box-shadow: 0 4px 10px rgba(0,57,38,0.25); }
+  .gantt-view { display: none; animation: fadeIn 0.4s ease; height: 100%; flex-direction: column; }
   .gantt-view.active { display: flex; }
-
-  /* Grid Visual del Cronograma */
-  .gantt-visual-grid {
-    display: grid;
-    grid-template-columns: 220px repeat(4, 1fr);
-    gap: 12px;
-    margin-top: 15px;
-    align-items: center;
-  }
-  .gantt-header-col {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--slate-muted);
-    text-align: center;
-    padding-bottom: 8px;
-    border-bottom: 2px solid var(--border-silver);
-  }
-  .gantt-row-label {
-    font-size: 0.8rem;
-    font-weight: 700;
-    color: var(--slate-dark);
-    text-align: right;
-    padding-right: 15px;
-    border-right: 2px solid var(--border-silver);
-  }
-  .gantt-track {
-    background: rgba(100,116,139,0.06);
-    border-radius: 6px;
-    height: 38px;
-    display: flex;
-    align-items: center;
-    padding: 0 4px;
-    position: relative;
-  }
-  
-  /* Barras Animadas */
+  .gantt-visual-grid { display: grid; grid-template-columns: 220px repeat(4, 1fr); gap: 12px; margin-top: 15px; align-items: center; }
+  .gantt-header-col { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; color: var(--slate-muted); text-align: center; padding-bottom: 8px; border-bottom: 2px solid var(--border-silver); }
+  .gantt-row-label { font-size: 0.8rem; font-weight: 700; color: var(--slate-dark); text-align: right; padding-right: 15px; border-right: 2px solid var(--border-silver); }
+  .gantt-track { background: rgba(100,116,139,0.06); border-radius: 6px; height: 38px; display: flex; align-items: center; padding: 0 4px; position: relative; }
   .gantt-bar {
-    height: 28px;
-    border-radius: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    white-space: nowrap;
-    overflow: hidden;
-    cursor: pointer;
-    transition: transform 0.3s, filter 0.3s;
-    width: 0%; /* Inicia en 0 para la animación */
+    height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center;
+    font-size: 0.72rem; font-weight: 700; color: white; box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    white-space: nowrap; overflow: hidden; cursor: pointer; transition: transform 0.3s, filter 0.3s; width: 0%;
   }
-  .gantt-bar:hover {
-    transform: scaleY(1.15);
-    filter: brightness(1.1);
-  }
-
-  /* Keyframes para llenar las barras */
+  .gantt-bar:hover { transform: scaleY(1.15); filter: brightness(1.1); }
   @keyframes fillBar100 { to { width: 100%; } }
   .gantt-view.active .gantt-bar { animation: fillBar100 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
-  
-  .bg-suyana { background: var(--suyana-green); }
-  .bg-leaf { background: var(--suyana-leaf); }
-  .bg-amber { background: var(--amber-meal); }
+  .bg-suyana { background: var(--suyana-green); } .bg-leaf { background: var(--suyana-leaf); } .bg-amber { background: var(--amber-meal); }
 
-/* ==================== SLIDE 7: CO-CREACIÓN Y TEORÍA DE CAMBIO ==================== */
-  .slide-7-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    height: 100%;
-  }
+  /* ==================== SLIDE 7: CO-CREACIÓN Y TEORÍA DE CAMBIO ==================== */
+  .slide-7-layout { display: flex; flex-direction: column; gap: 15px; height: 100%; }
+  .m1-container { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+  .m1-card { background: var(--white); border: 1px solid var(--border-silver); border-top: 4px solid var(--suyana-leaf); border-radius: 8px; padding: 12px 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.04); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; }
+  .m1-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 10px 20px rgba(0,0,0,0.12); border-top-color: var(--amber-meal); }
+  .m1-card h4 { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; color: var(--suyana-green); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .m1-card p { font-size: 0.7rem; color: var(--slate-dark); line-height: 1.3; }
+  .toc-wrapper { position: relative; padding: 35px 15px 25px 15px; border: 2px dashed var(--amber-meal); border-radius: 8px; background: rgba(255, 251, 235, 0.4); display: flex; flex-direction: column; justify-content: center; margin-top: 10px; }
+  .toc-meal-label { position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); background: var(--white); color: var(--amber-meal); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.85rem; padding: 0 15px; }
+  .toc-chevrons { display: flex; width: 100%; align-items: stretch; position: relative; min-height: 110px; }
+  .toc-challenge { background: var(--amber-meal); color: var(--white); font-family: 'Montserrat', sans-serif; font-size: 0.7rem; font-weight: 700; padding: 10px 20px 10px 10px; display: flex; align-items: center; justify-content: center; text-align: center; clip-path: polygon(0% 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 0% 100%); z-index: 5; width: 130px; margin-right: -10px; box-shadow: 2px 0 10px rgba(0,0,0,0.1); }
+  .toc-step { flex: 1; position: relative; padding: 12px 12px 12px 25px; color: var(--white); margin-left: -15px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; display: flex; flex-direction: column; justify-content: center; }
+  .toc-step:nth-child(3) { clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%); z-index: 4; background: #003926; }
+  .toc-step:nth-child(4) { clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%); z-index: 3; background: #1B5E20; }
+  .toc-step:nth-child(5) { clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%); z-index: 2; background: #388E3C; }
+  .toc-step:nth-child(6) { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 15px 50%); z-index: 1; background: #66BB6A; }
+  .toc-step:hover { transform: scale(1.08) translateY(-5px); z-index: 10 !important; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3)); }
+  .toc-step h5 { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; margin-bottom: 5px; border-bottom: 1px solid rgba(255,255,255,0.3); padding-bottom: 3px; }
+  .toc-step ul { font-size: 0.62rem; line-height: 1.25; padding-left: 12px; } .toc-step li { margin-bottom: 3px; }
+  .toc-assumptions-container { position: absolute; top: -24px; left: 130px; width: calc(100% - 130px); height: 25px; pointer-events: none; z-index: 10; }
+  .toc-assumption { position: absolute; font-size: 0.6rem; font-weight: 700; color: var(--slate-muted); transform: translateX(-50%); white-space: nowrap; display: flex; flex-direction: column; align-items: center; }
+  .toc-assumption::after { content: '⤵'; color: var(--amber-meal); font-size: 0.9rem; margin-top: -3px; }
+  .assump-1 { left: 25%; } .assump-2 { left: 50%; } .assump-3 { left: 75%; }
 
-  /* Momento 1: Tarjetas Animadas */
-  .m1-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-  }
-  .m1-card {
-    background: var(--white);
-    border: 1px solid var(--border-silver);
-    border-top: 4px solid var(--suyana-leaf);
-    border-radius: 8px;
-    padding: 12px 15px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.04);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-  }
-  .m1-card:hover {
-    transform: translateY(-5px) scale(1.02);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.12);
-    border-top-color: var(--amber-meal);
-  }
-  .m1-card h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    color: var(--suyana-green);
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  .m1-card p {
-    font-size: 0.7rem;
-    color: var(--slate-dark);
-    line-height: 1.3;
-  }
+  /* ==================== SLIDE 8: MATRIZ RACI INTERACTIVA ==================== */
+  .raci-legend-btn { cursor: pointer; transition: all 0.3s ease; user-select: none; position: relative; }
+  .raci-legend-btn:hover { transform: translateY(-3px); box-shadow: 0 4px 10px rgba(0,0,0,0.08); }
+  .raci-legend-btn.active { background: var(--white) !important; box-shadow: 0 0 0 2px var(--amber-meal), 0 4px 12px rgba(217, 119, 6, 0.15); }
+  .raci-cell { transition: opacity 0.3s ease, filter 0.3s ease; }
+  .raci-dimmed { opacity: 0.15; filter: grayscale(100%); }
 
-  /* Momento 2: Teoría de Cambio Proporcional */
-  .toc-wrapper {
-    position: relative;
-    padding: 35px 15px 25px 15px; /* Espacio ajustado para supuestos y etiqueta MEAL */
-    border: 2px dashed var(--amber-meal);
-    border-radius: 8px;
-    background: rgba(255, 251, 235, 0.4);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .toc-meal-label {
-    position: absolute;
-    bottom: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--white);
-    color: var(--amber-meal);
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800;
-    font-size: 0.85rem;
-    padding: 0 15px;
-  }
-
-  .toc-chevrons {
-    display: flex;
-    width: 100%;
-    align-items: stretch;
-    position: relative;
-    min-height: 110px;
-  }
-
-  /* Reto integrado en el flujo (ya no se corta) */
-  .toc-challenge {
-    background: var(--amber-meal);
-    color: var(--white);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    padding: 10px 20px 10px 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    clip-path: polygon(0% 0%, calc(100% - 15px) 0%, 100% 50%, calc(100% - 15px) 100%, 0% 100%);
-    z-index: 5;
-    width: 130px;
-    margin-right: -10px; /* Efecto de solapamiento */
-    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-  }
-
-  .toc-step {
-    flex: 1;
-    position: relative;
-    padding: 12px 12px 12px 25px;
-    color: var(--white);
-    margin-left: -15px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-  
-  /* Formas Chevron Suyana */
-  .toc-step:nth-child(3) { clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%); z-index: 4; background: #003926; } /* Insumos */
-  .toc-step:nth-child(4) { clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%); z-index: 3; background: #1B5E20; } /* Productos */
-  .toc-step:nth-child(5) { clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 15px 50%); z-index: 2; background: #388E3C; } /* Resultados */
-  .toc-step:nth-child(6) { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 15px 50%); z-index: 1; background: #66BB6A; } /* Impacto */
-
-  .toc-step:hover {
-    transform: scale(1.08) translateY(-5px);
-    z-index: 10 !important;
-    filter: drop-shadow(0 10px 15px rgba(0,0,0,0.3));
-  }
-
-  .toc-step h5 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.75rem;
-    margin-bottom: 5px;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 3px;
-  }
-
-  .toc-step ul {
-    font-size: 0.62rem;
-    line-height: 1.25;
-    padding-left: 12px;
-  }
-  .toc-step li { margin-bottom: 3px; }
-
-  /* Supuestos - Posicionamiento de "Puente" exacto */
-  .toc-assumptions-container {
-    position: absolute;
-    top: -24px;
-    left: 130px; /* Inicia después de la caja de Reto */
-    width: calc(100% - 130px); /* Cubre solo el área de los chevrons */
-    height: 25px;
-    pointer-events: none;
-    z-index: 10;
-  }
-  
-  .toc-assumption {
-    position: absolute;
-    font-size: 0.6rem;
-    font-weight: 700;
-    color: var(--slate-muted);
-    transform: translateX(-50%);
-    white-space: nowrap;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .toc-assumption::after {
-    content: '⤵'; /* Símbolo de puente visual */
-    color: var(--amber-meal);
-    font-size: 0.9rem;
-    margin-top: -3px;
-  }
-
-  /* Posiciones matemáticas sobre las uniones de las flechas */
-  .assump-1 { left: 25%; }
-  .assump-2 { left: 50%; }
-  .assump-3 { left: 75%; }
-/* ==================== SLIDE 8: MATRIZ RACI INTERACTIVA ==================== */
-  .raci-legend-btn {
-    cursor: pointer;
-    transition: all 0.3s ease;
-    user-select: none;
-    position: relative;
-  }
-  .raci-legend-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  }
-  .raci-legend-btn.active {
-    background: var(--white) !important;
-    box-shadow: 0 0 0 2px var(--amber-meal), 0 4px 12px rgba(217, 119, 6, 0.15);
-  }
-  
-  /* Celdas de la tabla */
-  .raci-cell {
-    transition: opacity 0.3s ease, filter 0.3s ease;
-  }
-  
-  /* Clase que opaca las celdas no seleccionadas */
-  .raci-dimmed {
-    opacity: 0.15;
-    filter: grayscale(100%);
-  }
-/* ==================== SLIDE 9: ACORDEÓN HORIZONTAL (DQA) ==================== */
-  .accordion-container {
-    display: flex;
-    gap: 12px;
-    height: 100%;
-    margin-top: 10px;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-  
-  .accordion-item {
-    flex: 1; /* Todas inician del mismo tamaño */
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
-    cursor: pointer;
-    background-color: var(--slate-dark);
-  }
-  
-  /* Expansión dinámica al pasar el ratón */
-  .accordion-item:hover {
-    flex: 4; /* Se hace 4 veces más grande que las demás */
-  }
-
-  .acc-bg-image {
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover;
-    opacity: 0.35; /* Oscurecida por defecto */
-    transition: all 0.6s ease;
-    filter: grayscale(80%);
-  }
-
-  /* La imagen se ilumina al expandirse */
-  .accordion-item:hover .acc-bg-image {
-    opacity: 0.2; /* Aún oscura para leer texto */
-    filter: grayscale(0%);
-    transform: scale(1.05);
-  }
-
-  /* Contenido base (siempre visible) */
-  .acc-header {
-    position: absolute;
-    bottom: 25px;
-    left: 20px;
-    right: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: bottom 0.6s ease;
-    z-index: 10;
-  }
-  
-  .acc-number {
-    background: var(--amber-meal);
-    color: white;
-    width: 35px; height: 35px;
-    border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 800; font-size: 1.1rem;
-    flex-shrink: 0;
-  }
-  
-  .acc-title {
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.8);
-    white-space: nowrap; /* No se rompe la línea */
-  }
-
-  /* Contenido detallado (Oculto por defecto, visible al expandir) */
-  .acc-details {
-    position: absolute;
-    top: 30px;
-    left: 20px;
-    right: 20px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-    transition-delay: 0.1s;
-    background: rgba(255, 255, 255, 0.95);
-    padding: 15px;
-    border-radius: 8px;
-    border-left: 4px solid var(--suyana-green);
-    pointer-events: none;
-    z-index: 5;
-    /* Evitar que el texto se rompa feo mientras se expande */
-    min-width: 380px; 
-  }
-
-  .accordion-item:hover .acc-header {
-    bottom: 15px; /* Baja un poco el título */
-  }
-
-  .accordion-item:hover .acc-details {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-  }
-
-  .acc-details h4 {
-    color: var(--suyana-green);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.85rem;
-    margin-bottom: 8px;
-    border-bottom: 2px solid var(--border-silver);
-    padding-bottom: 4px;
-  }
-
-  .acc-details ul {
-    padding-left: 15px;
-    font-size: 0.72rem;
-    color: var(--slate-dark);
-    line-height: 1.4;
-  }
-
+  /* ==================== SLIDE 9: ACORDEÓN HORIZONTAL (DQA) ==================== */
+  .accordion-container { display: flex; gap: 12px; height: 100%; margin-top: 10px; border-radius: 12px; overflow: hidden; }
+  .accordion-item { flex: 1; position: relative; border-radius: 8px; overflow: hidden; transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); cursor: pointer; background-color: var(--slate-dark); }
+  .accordion-item:hover { flex: 4; }
+  .acc-bg-image { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; transition: all 0.6s ease; filter: grayscale(80%); }
+  .accordion-item:hover .acc-bg-image { opacity: 0.2; filter: grayscale(0%); transform: scale(1.05); }
+  .acc-header { position: absolute; bottom: 25px; left: 20px; right: 20px; display: flex; align-items: center; gap: 10px; transition: bottom 0.6s ease; z-index: 10; }
+  .acc-number { background: var(--amber-meal); color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; flex-shrink: 0; }
+  .acc-title { color: white; font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; text-shadow: 0 2px 5px rgba(0,0,0,0.8); white-space: nowrap; }
+  .acc-details { position: absolute; top: 30px; left: 20px; right: 20px; opacity: 0; transform: translateY(20px); transition: all 0.5s ease; transition-delay: 0.1s; background: rgba(255, 255, 255, 0.95); padding: 15px; border-radius: 8px; border-left: 4px solid var(--suyana-green); pointer-events: none; z-index: 5; min-width: 380px; }
+  .accordion-item:hover .acc-header { bottom: 15px; }
+  .accordion-item:hover .acc-details { opacity: 1; transform: translateY(0); pointer-events: auto; }
+  .acc-details h4 { color: var(--suyana-green); font-family: 'Montserrat', sans-serif; font-size: 0.85rem; margin-bottom: 8px; border-bottom: 2px solid var(--border-silver); padding-bottom: 4px; }
+  .acc-details ul { padding-left: 15px; font-size: 0.72rem; color: var(--slate-dark); line-height: 1.4; }
   .acc-details li { margin-bottom: 8px; }
-  
-  /* Estilo para los bloques de código */
-  .code-snippet {
-    background: #1E293B;
-    color: #38BDF8;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-family: monospace;
-    font-size: 0.7rem;
-    font-weight: bold;
+  .code-snippet { background: #1E293B; color: #38BDF8; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.7rem; font-weight: bold; }
+
+  /* Impresión a PDF exacta en 16:9 */
+  @media print {
+    @page { size: landscape; margin: 0; }
+    html, body { background: white !important; display: block !important; height: auto !important; overflow: visible !important; margin: 0 !important; padding: 0 !important; }
+    .deck-viewport { display: block !important; width: 100% !important; height: auto !important; max-width: none !important; max-height: none !important; box-shadow: none !important; overflow: visible !important; background: transparent !important; margin: 0 !important; padding: 0 !important; }
+    .slide { display: flex !important; opacity: 1 !important; visibility: visible !important; page-break-after: always !important; page-break-inside: avoid !important; height: 100vh !important; width: 100vw !important; position: relative !important; overflow: hidden !important; animation: none !important; transition: none !important; transform: none !important; margin: 0 !important; }
+    .nav-bar { display: none !important; }
   }
 </style>
 </head>
@@ -1036,13 +436,10 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
 
   <!-- ==================== SLIDE 1: PORTADA EJECUTIVA ==================== -->
   <section class="slide active" style="background: linear-gradient(135deg, #003926 0%, #002216 65%, #1E293B 100%); color: white; justify-content: center;">
-    <!-- Logo Suyana Superior Derecha -->
     <div style="position: absolute; top: 32px; right: 44px; background; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.25);">
       <img src="img/logo_suyana_green.jpeg" alt="Fundación Suyana" style="height: 45px; width: auto; display: block;">
     </div>
-    
     <div style="border-left: 6px solid #D97706; padding-left: 28px; max-width: 92%;">
-      
       <h1 style="font-family:'Montserrat',sans-serif; font-size:2.3rem; font-weight:800; line-height:1.15; margin: 12px 0 14px 0; color:#FFFFFF;">
         Resolución de Caso Práctico - Especialista de Monitoreo, Evaluación y Aprendizaje (MEAL) y Gestión del Conocimiento
       </h1>
@@ -1050,15 +447,9 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
         Resolución estratégica interconectada para la evaluación del <strong>Programa Municipio Saludable (PMS 2024–2026)</strong>, su factibilidad de expansión urbana en <strong>El Alto (Distrito 4)</strong> y la consolidación del ecosistema <strong>KoboToolbox – ETL – Power BI (SSOT)</strong>.
       </p>
       <div style="display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px;">
-        <span style="background:rgba(255,255,255,0.12); border:1px solid #10B981; padding:8px 16px; border-radius:8px; font-size:0.82rem;">
-          <strong>Caso 1:</strong> Evaluación Mixta Participativa y Criterios OCDE-CAD
-        </span>
-        <span style="background:rgba(255,255,255,0.12); border:1px solid #FBBF24; padding:8px 16px; border-radius:8px; font-size:0.82rem;">
-          <strong>Caso 2:</strong> Evidencia y Teoría de Cambio Adaptativa (El Alto D-4)
-        </span>
-        <span style="background:rgba(255,255,255,0.12); border:1px solid #38BDF8; padding:8px 16px; border-radius:8px; font-size:0.82rem;">
-          <strong>Caso 3:</strong> Gobernanza RACI y Automatización DQA en Origen
-        </span>
+        <span style="background:rgba(255,255,255,0.12); border:1px solid #10B981; padding:8px 16px; border-radius:8px; font-size:0.82rem;"><strong>Caso 1:</strong> Evaluación Mixta Participativa y Criterios OCDE-CAD</span>
+        <span style="background:rgba(255,255,255,0.12); border:1px solid #FBBF24; padding:8px 16px; border-radius:8px; font-size:0.82rem;"><strong>Caso 2:</strong> Evidencia y Teoría de Cambio Adaptativa (El Alto D-4)</span>
+        <span style="background:rgba(255,255,255,0.12); border:1px solid #38BDF8; padding:8px 16px; border-radius:8px; font-size:0.82rem;"><strong>Caso 3:</strong> Gobernanza RACI y Automatización DQA en Origen</span>
       </div>
       <div style="display:flex; align-items:center; gap:20px; background:rgba(0,0,0,0.35); padding:12px 20px; border-radius:10px; width:fit-content;">
         <div>
@@ -1082,19 +473,14 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       </div>
       <span class="slide-badge">Evaluación Final Integral + Cohorte 2021–2023</span>
     </div>
-
     <div class="slide-body">
       <div class="grid-2" style="grid-template-columns: 1.25fr 1fr; align-items:stretch;">
-        
-        <!-- COLUMNA IZQUIERDA: DIAGRAMA CÍRCULO VIRTUOSO ANIMADO -->
         <div class="virtuous-diagram">
           <div class="vd-track"></div>
-          
           <div class="vd-core">
             <strong>Triangulación Concurrente</strong>
             <span>Cruce Autónomo</span>
           </div>
-
           <div class="vd-node vd-node-1">
             <h4>1. Diagnóstico Base</h4>
             <p>Revisión documental y marco metodológico.</p>
@@ -1111,13 +497,10 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
             <h4>4. Análisis Contribución</h4>
             <p>Cruce de variables vs. TOC.</p>
           </div>
-
           <div class="vd-arrow arrow-top">⬇</div>
           <div class="vd-arrow arrow-right">⬇</div>
           <div class="vd-arrow arrow-bottom">⬇</div>
           <div class="vd-arrow arrow-left">⬇</div>
-
-          <!-- Base: 6 Criterios OCDE-CAD -->
           <div class="ocde-criteria-bar">
             <span class="ocde-tag">PERTINENCIA</span>
             <span class="ocde-tag">COHERENCIA</span>
@@ -1127,15 +510,11 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
             <span class="ocde-tag">SOSTENIBILIDAD</span>
           </div>
         </div>
-
-        <!-- COLUMNA DERECHA: PITCH EJECUTIVO -->
         <div style="display:flex; flex-direction:column; justify-content:space-between; gap:10px;">
-          
           <div class="callout amber" style="font-size: 0.8rem;">
             <strong>Análisis de Contribución (No Experimental):</strong><br>
             Al operar sin grupos de control, la evaluación medirá cómo Suyana <em>contribuyó</em> al cambio frente a la presencia de otros actores territoriales.
           </div>
-
           <div class="card leaf-top">
             <h3>Integración de 2 Mundos <span class="pill pill-leaf">Estrategia</span></h3>
             <ul>
@@ -1143,26 +522,23 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
               <li><strong>Lo Cualitativo:</strong> Entrevistas para capturar el verdadero impacto (MSC).</li>
             </ul>
           </div>
-
           <div class="card" style="border-top-color: var(--suyana-green);">
             <h3>Estrategia de Muestreo <span class="pill pill-green">95% Nivel Confianza</span></h3>
             <p>Se aplicará un <strong>muestreo estadístico estratificado</strong> sobre la población beneficiaria. Este rigor matemático garantiza la <strong>validez externa</strong> y la representatividad territorial de los hallazgos.</p>
           </div>
-
           <div class="card">
             <h3>Triangulación de Fuentes <span class="pill pill-slate">Validación Cruzada</span></h3>
             <p>Cruce independiente entre Familias, Actores Municipales y Unidades Móviles para mitigar sesgos evaluativos.</p>
           </div>
-
         </div>
       </div>
     </div>
-
     <div class="slide-footer">
       <span>Caso 1: Evaluación PMS 2024–2026 | Arquitectura Metodológica</span>
       <span>Diapositiva 2 de 10</span>
     </div>
   </section>
+
   <!-- ==================== SLIDE 3: TAREA 1B (MATRIZ DE EVALUACIÓN) ==================== -->
   <section class="slide">
     <div class="slide-header">
@@ -1175,7 +551,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
         <button class="filter-btn" onclick="toggleMatrix('priority', this)">Destacar 3 Prioritarios ★</button>
       </div>
     </div>
-
     <div class="slide-body">
       <table class="exec-table" id="evalMatrix">
         <thead>
@@ -1239,12 +614,10 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
           </tr>
         </tbody>
       </table>
-
       <div class="callout">
         <strong>Lógica de Articulación Matricial:</strong> Las filas identificadas con <strong>★ Dorado Ámbar</strong> responden a las decisiones estratégicas del Directorio de Suyana para el nuevo ciclo: validan la pertinencia territorial, explican la contribución real más allá de las actividades y comprueban empíricamente la sostenibilidad post-intervención en la cohorte 2021–2023.
       </div>
     </div>
-
     <div class="slide-footer">
       <span>Caso 1: Evaluación PMS 2024–2026 | Matriz de Evaluación OCDE-CAD</span>
       <span>Diapositiva 3 de 10</span>
@@ -1252,7 +625,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
   </section>
 
   <!-- ==================== SLIDE 4: TAREA 1C (LIMITACIONES Y GESTIÓN DE RIESGOS) ==================== -->
-
   <section class="slide">
     <div class="slide-header">
       <div>
@@ -1261,14 +633,10 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       </div>
       <span class="slide-badge">Enfoque Preventivo</span>
     </div>
-
     <div class="slide-body">
       <div class="split-layout">
-        
-        <!-- MITAD IZQUIERDA: CONTEXTO VISUAL (FOTOGRAFÍA) -->
         <div class="split-image-container">
-         <img src="img/umovil.jpg" alt="Unidad Móvil Suyana" class="split-image">
-          
+          <img src="img/umovil.jpg" alt="Unidad Móvil Suyana" class="split-image">
           <div class="image-overlay-card">
             <h4 style="font-family:'Montserrat',sans-serif; font-size:0.85rem; margin-bottom:4px; color:var(--amber-light);">Desafío Logístico y Operativo</h4>
             <p style="font-size:0.75rem; line-height:1.4; color:#E2E8F0;">
@@ -1276,15 +644,11 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
             </p>
           </div>
         </div>
-
-        <!-- MITAD DERECHA: STEPPER EJECUTIVO DE RIESGOS -->
         <div class="split-content">
           <div style="margin-bottom: 12px;">
             <p style="font-size: 0.75rem; color: var(--slate-muted);">Para garantizar la credibilidad y viabilidad de la evaluación, hemos blindado 5 riesgos críticos:</p>
           </div>
-
           <div class="risk-stepper">
-            
             <div class="step-item">
               <div class="step-marker critical">1</div>
               <div class="step-text" style="border-left: 3px solid #DC2626;">
@@ -1292,7 +656,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
                 <p>➔ Mitigación: Auditoría cruzada y triangulación independiente con Impact Management (HQ Suiza).</p>
               </div>
             </div>
-
             <div class="step-item">
               <div class="step-marker amber">2</div>
               <div class="step-text" style="border-left: 3px solid var(--amber-meal);">
@@ -1300,7 +663,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
                 <p>➔ Mitigación: Mapeo de actores y Análisis de Contribución (metodología no experimental).</p>
               </div>
             </div>
-
             <div class="step-item">
               <div class="step-marker">3</div>
               <div class="step-text">
@@ -1308,7 +670,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
                 <p>➔ Mitigación: Verificación automatizada ETL y validación temprana de bases históricas.</p>
               </div>
             </div>
-
             <div class="step-item">
               <div class="step-marker">4</div>
               <div class="step-text">
@@ -1316,7 +677,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
                 <p>➔ Mitigación: Grupos focales para reconstrucción de memoria institucional.</p>
               </div>
             </div>
-
             <div class="step-item">
               <div class="step-marker">5</div>
               <div class="step-text">
@@ -1324,13 +684,10 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
                 <p>➔ Mitigación: Muestreo estratificado ex-post coordinado con autoridades originarias.</p>
               </div>
             </div>
-
           </div>
         </div>
-
       </div>
     </div>
-
     <div class="slide-footer">
       <span>Caso 1: Evaluación PMS 2024–2026 | Gestión de Riesgos Evaluativos</span>
       <span>Diapositiva 4 de 10</span>
@@ -1338,58 +695,43 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
   </section>
 
   <!-- ==================== SLIDE 5: TAREA 1D (PLAN DE 30 DÍAS - GANTT) ==================== -->
-  <!-- ==================== SLIDE 5: TAREA 1D (PLAN DE 30 DÍAS - GANTT) ==================== -->
   <section class="slide">
     <div class="slide-header">
       <div>
         <span class="slide-kicker">Caso 1 · Ruta Crítica de Preparación e Inicio (Inception Phase)</span>
         <h2 class="slide-title">Tarea 1D: Plan de Trabajo de 30 Días (Onboarding)</h2>
       </div>
-      <!-- Botones Interruptores -->
       <div class="gantt-toggle-bar">
         <button id="btnGanttVisual" class="gantt-toggle-btn active" onclick="toggleGantt('visual')">📊 Línea de Tiempo Visual</button>
         <button id="btnGanttTable" class="gantt-toggle-btn" onclick="toggleGantt('table')">📋 Matriz Detallada</button>
       </div>
     </div>
-
     <div class="slide-body">
-      
-      <!-- VISTA 1: LÍNEA DE TIEMPO VISUAL (Por Defecto) -->
       <div id="viewGanttVisual" class="gantt-view active">
         <div class="callout" style="margin-bottom: 10px;">
           <strong>Despliegue Acelerado:</strong> El diseño asegura que para la <strong>Semana 4</strong>, las 7 unidades móviles cuenten con un "Kit Evaluativo Calibrado" (KoboToolbox) y co-diseñado sin irrumpir su rutina médica.
         </div>
-        
         <div class="gantt-visual-grid">
-          <!-- Cabeceras -->
           <div></div>
           <div class="gantt-header-col">Semana 1</div>
           <div class="gantt-header-col">Semana 2</div>
           <div class="gantt-header-col">Semana 3</div>
           <div class="gantt-header-col">Semana 4</div>
-
-          <!-- Fila 1 -->
           <div class="gantt-row-label">1. Inmersión y Diagnóstico</div>
           <div class="gantt-track"><div class="gantt-bar bg-suyana" style="animation-delay: 0.1s;">Auditoría Bases Datos</div></div>
           <div class="gantt-track"></div>
           <div class="gantt-track"></div>
           <div class="gantt-track"></div>
-
-          <!-- Fila 2 -->
           <div class="gantt-row-label">2. Diseño Metodológico</div>
           <div class="gantt-track"></div>
           <div class="gantt-track"><div class="gantt-bar bg-suyana" style="animation-delay: 0.3s;">Diseño Muestral 95%</div></div>
           <div class="gantt-track"></div>
           <div class="gantt-track"></div>
-
-          <!-- Fila 3 -->
           <div class="gantt-row-label">3. Co-diseño Herramientas</div>
           <div class="gantt-track"></div>
           <div class="gantt-track"></div>
           <div class="gantt-track"><div class="gantt-bar bg-leaf" style="animation-delay: 0.5s;">XLSForm / KoboToolbox</div></div>
           <div class="gantt-track"></div>
-
-          <!-- Fila 4 -->
           <div class="gantt-row-label">4. Pilotaje en Terreno</div>
           <div class="gantt-track"></div>
           <div class="gantt-track"></div>
@@ -1397,8 +739,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
           <div class="gantt-track"><div class="gantt-bar bg-amber" style="animation-delay: 0.7s;">Prueba 7 Unidades Móviles</div></div>
         </div>
       </div>
-
-      <!-- VISTA 2: TABLA MATRIZ DETALLADA (Oculta por defecto) -->
       <div id="viewGanttTable" class="gantt-view">
         <table class="exec-table">
           <thead>
@@ -1440,15 +780,13 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
           <strong>Justificación:</strong> Se evita recolectar datos precipitadamente. Las semanas 1 y 2 son de blindaje técnico (auditoría) para asegurar cero fricción en terreno durante la semana 4.
         </div>
       </div>
-
     </div>
-
     <div class="slide-footer">
       <span>Caso 1: Evaluación PMS 2024–2026 | Plan de Trabajo 30 Días</span>
       <span>Diapositiva 5 de 10</span>
     </div>
   </section>
-  
+
   <!-- ==================== SLIDE 6: TAREA 2A (EVIDENCIA EXPANSIÓN EL ALTO) ==================== -->
   <section class="slide">
     <div class="slide-header">
@@ -1458,7 +796,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       </div>
       <span class="slide-badge">Zona San Felipe de Seke · Distrito 4</span>
     </div>
-
     <div class="slide-body">
       <table class="exec-table">
         <thead>
@@ -1514,12 +851,10 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
           </tr>
         </tbody>
       </table>
-
       <div class="callout">
         <strong>Recomendación Ejecutiva a Dirección:</strong> Sí es viable trasladar el PMS a San Felipe de Seke, <strong>condicionado a microfocalizar el Año 1 Piloto en 2 a 3 sectores contiguos</strong> articulados alrededor del CS San Felipe de Seke, 2–3 Unidades Educativas (con BTH en Electromecánica) y la ribera del río Seke.
       </div>
     </div>
-
     <div class="slide-footer">
       <span>Caso 2: Expansión PMS Urbano (El Alto D-4) | Evidencia para la Toma de Decisiones</span>
       <span>Diapositiva 6 de 10</span>
@@ -1527,7 +862,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
   </section>
 
   <!-- ==================== SLIDE 7: TAREA 2B (DISEÑO PMS URBANO Y TEORÍA DE CAMBIO) ==================== -->
- <!-- ==================== SLIDE 7: TAREA 2B (DISEÑO PMS URBANO Y TEORÍA DE CAMBIO) ==================== -->
   <section class="slide">
     <div class="slide-header">
       <div>
@@ -1536,58 +870,41 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       </div>
       <span class="slide-badge">D-4 El Alto · Enfoque Adaptativo</span>
     </div>
-
     <div class="slide-body slide-7-layout">
-      
-      <!-- ================= MOMENTO 1 ================= -->
       <div>
         <div style="font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; color:var(--suyana-green); margin-bottom:6px;">
           MOMENTO 1: LIDERAZGO TÉCNICO FACILITADOR (Fase de Preparación)
         </div>
-        
         <div class="m1-container">
-          <!-- Tarjeta 1 -->
           <div class="m1-card">
             <h4>📊 1. Procesamiento Analítico</h4>
             <p>Síntesis temática de la evidencia demográfica, económica y de salud. Transformamos datos brutos en <strong>insumos ejecutivos</strong> para la toma de decisiones.</p>
           </div>
-          <!-- Tarjeta 2 -->
           <div class="m1-card">
             <h4>🧠 2. Sensemaking Interno</h4>
             <p>Talleres de alineación con <strong>Dirección, Coordinadores e Impact Management</strong>. Unificamos la visión institucional antes de ir al terreno.</p>
           </div>
-          <!-- Tarjeta 3 -->
           <div class="m1-card">
             <h4>🤝 3. Co-diseño Territorial</h4>
             <p>Mesas participativas (<strong>GAMEA, Red Los Andes, FEJUVE</strong>). Validamos la viabilidad sin generar falsas expectativas en el D-4.</p>
           </div>
         </div>
       </div>
-
-      <!-- ================= MOMENTO 2 ================= -->
       <div style="flex:1; display:flex; flex-direction:column; justify-content:center;">
         <div style="font-family:'Montserrat',sans-serif; font-size:0.75rem; font-weight:700; color:var(--suyana-green); margin-bottom:8px;">
           MOMENTO 2: HOJA DE RUTA — TEORÍA DE CAMBIO CONDENSADA
         </div>
-
         <div class="toc-wrapper">
           <div class="toc-meal-label">MONITOREO, EVALUACIÓN Y APRENDIZAJE (MEAL)</div>
-          
           <div class="toc-chevrons">
-            
-            <!-- Supuestos (Puentes lógicos posicionados matemáticamente) -->
             <div class="toc-assumptions-container">
               <div class="toc-assumption assump-1">Supuesto: Rotación Autoridades</div>
               <div class="toc-assumption assump-2">Supuesto: Paz Social Vecinal</div>
               <div class="toc-assumption assump-3">Supuesto: Uso Agua Lluvia</div>
             </div>
-
-            <!-- Caja Estrategia Transversal (Ahora integrada) -->
             <div class="toc-challenge">
               Estrategia<br>Transversal:<br><br>Microfocalización<br>Territorial D-4
             </div>
-            
-            <!-- Insumos -->
             <div class="toc-step">
               <h5>📑 INSUMOS</h5>
               <ul>
@@ -1597,8 +914,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
                 <li>Guía AUP + Cosecha Lluvia.</li>
               </ul>
             </div>
-
-            <!-- Productos -->
             <div class="toc-step">
               <h5>🛠️ PRODUCTOS</h5>
               <ul>
@@ -1608,8 +923,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
                 <li>Mesas de gestión barrial.</li>
               </ul>
             </div>
-
-            <!-- Resultados -->
             <div class="toc-step">
               <h5>🎯 RESULTADOS</h5>
               <ul>
@@ -1619,8 +932,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
                 <li>Freno a degradación local (Río Seke).</li>
               </ul>
             </div>
-
-            <!-- Impacto -->
             <div class="toc-step">
               <h5>🌱 IMPACTO</h5>
               <ul>
@@ -1629,20 +940,16 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
                 <li><strong>Inserción económica efectiva (familias aymaras).</strong></li>
               </ul>
             </div>
-
           </div>
         </div>
       </div>
-
     </div>
-
     <div class="slide-footer">
       <span>Caso 2: Expansión PMS Urbano (El Alto D-4) | Teoría de Cambio y MEAL</span>
       <span>Diapositiva 7 de 10</span>
     </div>
   </section>
 
-  <!-- ==================== SLIDE 8: TAREA 3A (MATRIZ RACI DQA) ==================== -->
   <!-- ==================== SLIDE 8: TAREA 3A (MATRIZ RACI DQA) ==================== -->
   <section class="slide">
     <div class="slide-header">
@@ -1652,15 +959,11 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       </div>
       <span class="slide-badge">Validez · Fiabilidad · Integridad · Precisión · Oportunidad</span>
     </div>
-
     <div class="slide-body">
-      
-      <!-- Leyenda RACI Interactiva (Botones) -->
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
         <div style="font-size:0.75rem; font-weight:700; color:var(--slate-muted);">Filtre por rol haciendo clic en la leyenda:</div>
         <button class="filter-btn active raci-legend-btn" onclick="filterRACI('ALL', this)">Mostrar Todos</button>
       </div>
-
       <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px;">
         <div class="raci-legend-btn" onclick="filterRACI('R', this)" style="background:var(--bg-pearl); border-left:4px solid var(--suyana-green); padding:6px 10px; border-radius:4px; font-size:0.72rem;">
           <span class="pill pill-green">R</span> <strong>Responsable:</strong> Ejecuta operativamente.
@@ -1675,7 +978,6 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
           <span class="pill pill-slate">I</span> <strong>Informado:</strong> Recibe reportes.
         </div>
       </div>
-
       <table class="exec-table" id="raciTable">
         <thead>
           <tr>
@@ -1754,19 +1056,16 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
           </tr>
         </tbody>
       </table>
-
       <div class="callout" style="margin-top:6px;">
         <strong>Principio de Gobernanza MEAL:</strong> El Especialista actúa como <strong>arquitecto garante</strong> (automatiza la detección), liberando a los Equipos de Campo de revisiones burocráticas en hojas de cálculo.
       </div>
     </div>
-
     <div class="slide-footer">
       <span>Caso 3: Calidad de Datos (DQA) | Matriz de Roles y Responsabilidades RACI</span>
       <span>Diapositiva 8 de 10</span>
     </div>
   </section>
 
-  <!-- ==================== SLIDE 9: TAREA 3B (ESTRATEGIA INTEGRAL 3 DIMENSIONES) ==================== -->
   <!-- ==================== SLIDE 9: TAREA 3B (ESTRATEGIA INTEGRAL 3 DIMENSIONES) ==================== -->
   <section class="slide">
     <div class="slide-header">
@@ -1776,43 +1075,34 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       </div>
       <span class="slide-badge">100 Errores Resueltos de Raíz</span>
     </div>
-
     <div class="slide-body" style="display:flex; flex-direction:column; height:100%;">
-      
       <div class="callout amber" style="margin-bottom:0;">
         <strong>Diagnóstico de Causa Raíz:</strong> El proceso actual fracasa porque intenta corregir <em>después</em> de la captura mediante reportes burocráticos. La solución traslada el control duro al <strong>XLSForm</strong> y al <strong>ETL</strong>, eliminando &gt;85% de los errores antes de que lleguen a la base de datos.
       </div>
-
-      <!-- ACORDEÓN DINÁMICO -->
       <div class="accordion-container">
-        
-        <!-- Dimensión 1: Formulario -->
+        <!-- Dimensión 1 -->
         <div class="accordion-item">
           <img src="img/1.jpeg" alt="Técnico KoboToolbox" class="acc-bg-image">
-          
           <div class="acc-details">
             <h4>Bloqueo Preventivo (KoboToolbox XLSForm)</h4>
             <ul>
               <li><strong>Vacíos (24 casos):</strong> Restricción <code>required = yes</code>. El formulario impide avanzar.</li>
               <li><strong>Fechas de Nacimiento (18 casos):</strong> Validar que no sea fecha futura usando <code>constraint: . &lt;= today()</code> + <code>constraint_message</code>.</li>
-              <li><strong>Comunidad Equivocada (11 casos):</strong> Uso de <code>choice_filter</code> (Menú en Cascada) atado a la selección del municipio.</li>
+              <li><strong>Comunidad Equivocada (11 casos):</strong> Uso de <code>choice_filter</code> atado a la selección del municipio.</li>
               <li><strong>Año Intervención (5 casos):</strong> Metadatos ocultos. Campo <code>read_only = yes</code> alimentado por <code>today()</code>.</li>
             </ul>
             <div style="margin-top:10px; font-weight:700; color:var(--suyana-leaf); font-size:0.75rem;">
               ➔ Impacto: Mitiga el 58% de errores en tiempo real. 0% retrabajo.
             </div>
           </div>
-
           <div class="acc-header">
             <div class="acc-number">1</div>
             <div class="acc-title">Prevención en Origen</div>
           </div>
         </div>
-
-        <!-- Dimensión 2: Pipeline ETL -->
+        <!-- Dimensión 2 -->
         <div class="accordion-item">
           <img src="img/2.jpeg" alt="Análisis ETL" class="acc-bg-image">
-          
           <div class="acc-details" style="border-left-color:var(--amber-meal);">
             <h4 style="color:var(--amber-meal);">Limpieza Automatizada (Python/Power Query)</h4>
             <ul>
@@ -1824,38 +1114,32 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
               ➔ Impacto: Elimina los Excel manuales de revisión para Coordinadores.
             </div>
           </div>
-
           <div class="acc-header">
             <div class="acc-number" style="background:var(--suyana-leaf);">2</div>
             <div class="acc-title">Pipeline ETL</div>
           </div>
         </div>
-
-        <!-- Dimensión 3: Micro-espacios -->
+        <!-- Dimensión 3 -->
         <div class="accordion-item">
           <img src="img/3.jpeg" alt="Interacción Campo" class="acc-bg-image">
-          
           <div class="acc-details" style="border-left-color:var(--slate-dark);">
             <h4 style="color:var(--slate-dark);">Gestión del Cambio Focalizada</h4>
             <ul>
               <li><strong>Empatía Tecnológica:</strong> Los duplicados recurrentes (35 casos) suelen nacer de inseguridad al subir datos offline (pulsar "enviar" múltiples veces).</li>
-              <li><strong>Acción Quirúrgica:</strong> Nada de "talleres aburridos generales". Sesiones de acompañamiento de <strong>10 minutos, 1 a 1 en terreno</strong>, solo con los usuarios que presentan la falla en el dashboard DQA.</li>
+              <li><strong>Acción Quirúrgica:</strong> Sesiones de acompañamiento de <strong>10 minutos, 1 a 1 en terreno</strong>, solo con usuarios que presentan la falla.</li>
               <li><strong>Amnistía Histórica:</strong> Limpieza del 40% pendiente por parte de Sistemas/MEAL para arrancar en "Cero" con los nuevos XLSForms.</li>
             </ul>
             <div style="margin-top:10px; font-weight:700; color:var(--suyana-leaf); font-size:0.75rem;">
               ➔ Impacto: Cierra la brecha del pasivo histórico.
             </div>
           </div>
-
           <div class="acc-header">
             <div class="acc-number" style="background:var(--slate-dark);">3</div>
             <div class="acc-title">Micro-Facilitación</div>
           </div>
         </div>
-
       </div>
     </div>
-
     <div class="slide-footer">
       <span>Caso 3: Calidad de Datos (DQA) | Mitigación Tecnológica, ETL y Facilitación</span>
       <span>Diapositiva 9 de 10</span>
@@ -1871,13 +1155,11 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       <h1 style="font-family:'Montserrat',sans-serif; font-size:2.8rem; font-weight:800; color:#FFFFFF; margin-bottom: 20px;">
         ¡Muchas Gracias!
       </h1>
-
       <div style="background:rgba(255,255,255,0.08); border-left: 6px solid #D97706; border-right: 6px solid #2E7D32; padding: 22px 28px; border-radius: 12px; margin-bottom: 26px; text-align: left;">
         <p style="font-family:'Montserrat',sans-serif; font-size:1.08rem; font-weight:600; line-height:1.5; color:#FFFFFF; font-style:italic;">
           “Un sistema MEAL de excelencia no añade carga burocrática al terreno: <span style="color:#FBBF24;">blinda la calidad del dato en el origen</span>, convierte la evidencia en <span style="color:#6EE7B7;">decisiones estratégicas oportunas</span> y transforma cada intervención rural o urbana en aprendizaje vivo para las familias bolivianas.”
         </p>
       </div>
-
       <div class="grid-3" style="text-align:left; gap:14px; margin-bottom:24px;">
         <div style="background:rgba(0,0,0,0.3); padding:12px 14px; border-radius:8px; border:1px solid rgba(255,255,255,0.15);">
           <div style="color:#FBBF24; font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.8rem;">1. Rigor Metodológico</div>
@@ -1892,12 +1174,10 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
           <div style="font-size:0.74rem; color:#E2E8F0; margin-top:4px;">Certificación PMP®, empatía con equipos de campo y articulación entre Bolivia y HQ Suiza.</div>
         </div>
       </div>
-
       <div style="font-size:0.9rem; color:#FBBF24; font-weight:600;">
         Miguel Ángel Arciénega Avilés · Listo para la ronda de preguntas y discusión (10–15 min)
       </div>
     </div>
-
     <div class="slide-footer" style="background:rgba(0,0,0,0.4); border-top-color:rgba(255,255,255,0.15); color:#CBD5E1;">
       <span>Defensa Caso Práctico — Especialista MEAL Fundación Suyana</span>
       <span>Diapositiva 10 de 10</span>
@@ -1928,26 +1208,19 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     indicator.textContent = (currentSlide + 1) + ' / ' + slides.length;
   }
 
-  function changeSlide(step) {
-    showSlide(currentSlide + step);
-  }
+  function changeSlide(step) { showSlide(currentSlide + step); }
 
   document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowRight' || e.key === 'PageDown' || e.key === ' ') {
-      e.preventDefault();
-      changeSlide(1);
+      e.preventDefault(); changeSlide(1);
     } else if (e.key === 'ArrowLeft' || e.key === 'PageUp') {
-      e.preventDefault();
-      changeSlide(-1);
+      e.preventDefault(); changeSlide(-1);
     }
   });
 
   function toggleFullScreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen();
-    } else if (document.exitFullscreen) {
-      document.exitFullscreen();
-    }
+    if (!document.fullscreenElement) { document.documentElement.requestFullscreen(); } 
+    else if (document.exitFullscreen) { document.exitFullscreen(); }
   }
 
   function toggleMatrix(mode, btn) {
@@ -1964,16 +1237,12 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
     }
   }
 
-  // ==================== NUEVA FUNCIÓN PARA EL GANTT (SLIDE 5) ====================
   function toggleGantt(viewMode) {
-    // Apagar botones
     document.getElementById('btnGanttVisual').classList.remove('active');
     document.getElementById('btnGanttTable').classList.remove('active');
-    // Apagar vistas
     document.getElementById('viewGanttVisual').classList.remove('active');
     document.getElementById('viewGanttTable').classList.remove('active');
     
-    // Encender la selección
     if(viewMode === 'visual') {
       document.getElementById('btnGanttVisual').classList.add('active');
       document.getElementById('viewGanttVisual').classList.add('active');
@@ -1982,42 +1251,24 @@ Presentacion_Ejecutiva_MEAL_Suyana.html
       document.getElementById('viewGanttTable').classList.add('active');
     }
   }
-// ==================== FILTRO DE MATRIZ RACI (SLIDE 8) ====================
+
   function filterRACI(role, btnElement) {
-    // Quitar la clase 'active' de todos los botones de la leyenda
-    document.querySelectorAll('.raci-legend-btn').forEach(btn => {
-      btn.classList.remove('active');
-    });
-    // Activar solo el botón presionado
+    document.querySelectorAll('.raci-legend-btn').forEach(btn => btn.classList.remove('active'));
     if (btnElement) btnElement.classList.add('active');
 
-    // Seleccionar todas las filas del cuerpo de la tabla RACI
     const rows = document.querySelectorAll('#raciTable tbody tr');
-    
     rows.forEach(row => {
       const cells = row.querySelectorAll('td');
-      // Ignoramos la celda [0] porque es el texto de la tarea, iteramos el resto
       for (let i = 1; i < cells.length; i++) {
         const cell = cells[i];
-        
         if (role === 'ALL') {
-          // Si es Mostrar Todos, quitar la opacidad de todo
           cell.classList.remove('raci-dimmed');
         } else {
-          // Extraemos todas las pastillas (pills) dentro de esta celda
           const pills = cell.querySelectorAll('.pill');
           let hasRole = false;
-          
-          pills.forEach(p => {
-            if (p.textContent.trim() === role) hasRole = true;
-          });
-
-          // Opacamos o resaltamos dependiendo de si tiene el rol
-          if (hasRole) {
-            cell.classList.remove('raci-dimmed');
-          } else {
-            cell.classList.add('raci-dimmed');
-          }
+          pills.forEach(p => { if (p.textContent.trim() === role) hasRole = true; });
+          if (hasRole) { cell.classList.remove('raci-dimmed'); } 
+          else { cell.classList.add('raci-dimmed'); }
         }
       }
     });
